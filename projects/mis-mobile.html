@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS Report | Legal Case Management App Case Study</title>
+    <meta name="description"
+        content="Product Management case study for MIS Report, a centralized legal case management mobile application.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-primary: #4F46E5;
+            --brand-secondary: #10B981;
+        }
+
+        .light-theme {
+            --bg-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --surface-color: #f9fafb;
+            --surface-border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-theme {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Styling */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem 0 4rem;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px -15px rgba(79, 70, 229, 0.15);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #fdfdfd;
+        }
+
+        .hero-visual:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 7rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--brand-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-actions .btn-large {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .card[style*="display: flex"] {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            .persona-grid {
+                grid-template-columns: 1fr !important;
+            }
+            section {
+                padding: 4rem 0 !important;
+            }
+            .hero {
+                padding: 6rem 0 2rem !important;
+            }
+            .decision-highlight {
+                padding: 2rem !important;
+            }
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 28px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            border-color: var(--brand-primary);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .info-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight {
+            background: linear-gradient(135deg, var(--brand-primary), #6366F1);
+            color: white;
+            padding: 5rem;
+            border-radius: 40px;
+            margin: 4rem 0;
+            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25);
+        }
+
+        .decision-highlight h3 {
+            color: white;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0;
+        }
+
+        .tool-icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            width: 100px;
+        }
+
+        .tool-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tool-item:hover img {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--surface-border);
+            padding: 0.8rem 1.6rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-nav:hover {
+            transform: translateX(-8px);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 10rem 0;
+            background: var(--surface-color);
+            border-radius: 48px;
+            margin: 6rem 0;
+        }
+
+        .btn-large {
+            padding: 1.4rem 3.5rem;
+            font-size: 1.15rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-black {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .btn-black:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Screenshot Carousel */
+        .screenshot-carousel-container {
+            margin: 5rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 3rem;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            width: max-content;
+            padding: 2rem 0;
+        }
+
+        .carousel-item {
+            flex: 0 0 320px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            border-radius: 36px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border: 6px solid var(--surface-border);
+        }
+
+        /* Scroll Animation Utility */
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    </script>
+    <a href="../index.html#work" class="back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back to Work
+    </a>
+
+    <div class="case-study-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="section-heading">Case Study</span>
+            <h1 class="hero-title">MIS Report</h1>
+            <p class="hero-subtitle">Legal Case Management App</p>
+
+            <div class="hero-tags">
+                <span class="tag">Legal Tech</span>
+                <span class="tag">Case Management</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">Document Management</span>
+            </div>
+
+            <div class="hero-visual">
+                <img src="../assets/featureGraphic/MisReport.png" alt="MIS Report App Preview">
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.misreport.mis_report&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/us/app/mis-report-case-review-app/id6757596050" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1Du4e6ARVrwqiJfvpmcaxwRXMFIqN0LoG/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" data-scroll>
+            <div class="grid-2">
+                <div class="overview-text">
+                    <span class="section-heading">Overview</span>
+                    <h2>Centralizing Legal Operations</h2>
+                    <p>
+                        MIS Report is a mobile application designed to help law firms and legal professionals manage and
+                        review legal case information efficiently. Many law firms rely on manual systems or fragmented
+                        processes to track case documents, hearing updates, and case statuses.
+                    </p>
+                    <p>
+                        The app centralizes legal case management by providing a digital platform where legal
+                        professionals can store, track, and review case information from anywhere. The app simplifies
+                        documentation, improves accessibility to case records, and enhances operational efficiency for
+                        legal teams.
+                    </p>
+                </div>
+                <div class="overview-info">
+                    <div class="card">
+                        <div class="info-item">
+                            <span class="info-label">Product Type</span>
+                            <span class="info-value">Mobile Application</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Platform</span>
+                            <span class="info-value">Android & iOS</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Target Users</span>
+                            <span class="info-value">Law Firms, Legal Professionals</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tech Stack</span>
+                            <span class="info-value">Flutter, Spring Boot, AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" data-scroll>
+            <span class="section-heading">Problem Statement</span>
+            <h2>The Weight of Paper Files</h2>
+            <p>Law firms lacked an efficient and centralized system to manage case details, documentation, and status
+                updates, leading to operational delays and errors.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: var(--brand-primary);">Who Was Affected
+                    </h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-scale-balanced" style="margin-top: 0.3rem;"></i>
+                            <span>Law firms handling massive case loads</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-user-tie" style="margin-top: 0.3rem;"></i>
+                            <span>Legal professionals tracking progress manually</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: #ef4444;">Impact if Unsolved</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-file-circle-xmark" style="margin-top: 0.3rem;"></i>
+                            <span>Difficulty retrieving case documents quickly</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-clock-rotate-left" style="margin-top: 0.3rem;"></i>
+                            <span>Inefficiencies and missed hearing updates</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-top: 0.3rem;"></i>
+                            <span>Fragmented information across disparate systems</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Personas -->
+        <section id="personas" data-scroll>
+            <span class="section-heading">User Personas</span>
+            <h2>Designing for the Courtroom</h2>
+            <div class="card" style="padding: 3.5rem;">
+                <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2.5rem;">
+                    <div
+                        style="width: 84px; height: 84px; background: #e0e7ff; color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.25rem;">
+                        <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.75rem;">Legal Professional / Law Firm Manager</h3>
+                        <span
+                            style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">Primary
+                            User</span>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <h4
+                            style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1.25rem; letter-spacing: 0.1em; font-weight: 800;">
+                            Goals</h4>
+                        <ul style="padding-left: 1.25rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.75rem;">Digitally manage and organize legal cases</li>
+                            <li style="margin-bottom: 0.75rem;">Quickly retrieve case documents and reports</li>
+                            <li>Track case progress and hearing updates</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1.25rem; letter-spacing: 0.1em; font-weight: 800;">
+                            Pain Points</h4>
+                        <ul style="padding-left: 1.25rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.75rem;">Manual case documentation processes</li>
+                            <li style="margin-bottom: 0.75rem;">Difficulty retrieving case records quickly</li>
+                            <li>Managing multiple cases simultaneously</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Goals & Success Metrics -->
+        <section id="goals" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Product Goals</span>
+                    <h2>The Vision for MIS</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <span>Digitize case documentation and reduce reliance on physical files</span>
+                        </li>
+                        <li style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <span>Improve accessibility to case records and reports anytime</span>
+                        </li>
+                        <li style="display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <span>Simplify case tracking and management for legal teams</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-heading">Success Metrics</span>
+                    <div class="card">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Adoption
+                                    Rate</strong>
+                                <span style="color: var(--text-secondary);">Conversion of existing law firms to the
+                                    digital platform.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Search
+                                    Speed</strong>
+                                <span style="color: var(--text-secondary);">Reduced time required to retrieve specific
+                                    case documents.</span>
+                            </li>
+                            <li>
+                                <strong
+                                    style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Efficiency</strong>
+                                <span style="color: var(--text-secondary);">Positive feedback on operational workflow
+                                    improvements.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Overview -->
+        <section id="solution" data-scroll>
+            <span class="section-heading">The Solution</span>
+            <h2>A Digital Vault for Law Firms</h2>
+            <p>
+                MIS Report was designed as a centralized legal case management platform that digitizes case
+                documentation and tracking. The application enables law firms to upload, manage, and retrieve case
+                documents while also tracking case progress and hearing details.
+            </p>
+
+            <p>
+                By centralizing case data in a mobile application, legal professionals can access important case
+                information anytime and anywhere, improving operational efficiency and reducing reliance on manual
+                records.
+            </p>
+        </section>
+
+        <!-- Key Product Decision -->
+        <section id="decision" data-scroll>
+            <div class="decision-highlight">
+                <span class="section-heading" style="color: rgba(255,255,255,0.7);">Core Product Decision</span>
+                <h3>Mobile-First Centralization</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;">
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 1.25rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">
+                            Context</h4>
+                        <p style="font-size: 1.15rem; line-height: 1.7;">Law firms relied heavily on physical documents
+                            and manual filing systems, making case tracking inefficient and document retrieval difficult
+                            in time-sensitive situations.</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 1.25rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">
+                            Rationale</h4>
+                        <p style="font-size: 1.15rem; line-height: 1.7;">A mobile application allows lawyers to search
+                            and retrieve documents instantly during hearings. It digitizes case files into a structured
+                            system, significantly reducing the administrative burden.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP & Prioritization -->
+        <section id="mvp" data-scroll>
+            <span class="section-heading">Prioritization</span>
+            <h2>MVP & Future High-Impact Features</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; color: var(--brand-primary);">MVP Core</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-check-double"
+                                style="color: var(--brand-secondary); margin-top: 0.35rem;"></i>
+                            <span>Court-wise case reports</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-check-double"
+                                style="color: var(--brand-secondary); margin-top: 0.35rem;"></i>
+                            <span>Case document upload and retrieval</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="opacity: 0.8;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem;">Future Enhancements</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-chart-line" style="margin-top: 0.35rem;"></i>
+                            <span>Month-wise case analytics</span>
+                        </li>
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-bell" style="margin-top: 0.35rem;"></i>
+                            <span>Case reminders and hearing alerts</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-list-check" style="margin-top: 0.35rem;"></i>
+                            <span>Task management for legal teams</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card"
+                style="margin-top: 2rem; border-left: 8px solid var(--brand-primary); background: rgba(79, 70, 229, 0.03);">
+                <p style="margin: 0; font-size: 1.15rem; font-style: italic;">
+                    <strong>The "Why":</strong> Court-wise case reports and document retrieval solved the most critical
+                    operational challenge — organizing and accessing documents efficiently under pressure.
+                </p>
+            </div>
+        </section>
+
+        <!-- Execution & Collaboration -->
+        <section id="execution" data-scroll>
+            <span class="section-heading">Execution</span>
+            <h2>Agile Delivery</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Cross-Functional Alignment</h3>
+                    <p>Coordinating between legal domain experts and software developers required structured
+                        communication.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                        <span class="tag">Product PM</span>
+                        <span class="tag">UI/UX Designer</span>
+                        <span class="tag">Flutter Devs</span>
+                        <span class="tag">Backend (Spring Boot)</span>
+                        <span class="tag">Cloud (AWS)</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem; font-weight: 700;">The Challenge</h3>
+                    <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+                        Ensuring high performance for document storage and rapid retrieval across various court
+                        locations.
+                    </p>
+                    <p style="font-size: 1.05rem; margin-bottom: 0;">
+                        <strong>Methodology:</strong> Shared sprint cycles with daily standups to align development,
+                        testing, and cloud deployment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section id="tools" data-scroll>
+            <span class="section-heading">Tech Stack</span>
+            <h2>Tools & Technologies</h2>
+            <div class="tool-icon-grid">
+                <div class="tool-item">
+                    <img src="../assets/icons/Figma.png" alt="Figma">
+                    <span class="tool-name">Figma</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/flutter.png" alt="Flutter">
+                    <span class="tool-name">Flutter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/Java.png" alt="Spring Boot">
+                    <span class="tool-name">Spring Boot</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/firebase.png" alt="AWS">
+                    <span class="tool-name">AWS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/jira.png" alt="Jira">
+                    <span class="tool-name">Jira</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes & Impact -->
+        <section id="outcomes" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Impact</span>
+                    <h2>Measurable Outcomes</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.5rem;"></i>
+                            <strong>Centralized digital platform for case data</strong>
+                        </li>
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.5rem;"></i>
+                            <strong>Simplified documentation and instant retrieval</strong>
+                        </li>
+                        <li style="display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.5rem;"></i>
+                            <strong>Mobile-enabled hearing support</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="background: rgba(16, 185, 129, 0.04); border-color: rgba(16, 185, 129, 0.2);">
+                    <h4
+                        style="margin-bottom: 1.5rem; color: var(--brand-secondary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                        Long-term Impact</h4>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.25rem;">Reduced the time required to retrieve case
+                        documents by over 60%, significantly improving courtroom performance.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.25rem;">Transformed traditional law firms into agile,
+                        paperless organizations.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0;">Increased overall operational visibility for law
+                        firm managers across multiple court locations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta" data-scroll>
+            <h2 style="margin-bottom: 1.5rem;">Modernize Your Legal Practice</h2>
+            <p
+                style="margin-bottom: 5rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Join the growing number of law firms using MIS Report to centralize their operations.</p>
+
+
+
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://play.google.com/store/apps/details?id=com.misreport.mis_report&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/us/app/mis-report-case-review-app/id6757596050" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1Du4e6ARVrwqiJfvpmcaxwRXMFIqN0LoG/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--surface-border);">
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">&copy; 2026 Visswa Aravind. Lead
+            Product Manager.</p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-scroll]').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentsomeware | Case Study</title>
+    <meta name="description" content="Case study on building a peer-to-peer rental platform combining elements of social media and e-commerce.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Shared UI Variables for Theme Adaptability */
+        :root {
+            /* Light Theme Variables */
+            --bg-color-light: #f8fafc;
+            --text-primary-light: #0f172a;
+            --text-secondary-light: #475569;
+            --surface-color-light: #ffffff;
+            --surface-border-light: #e2e8f0;
+            --brand-primary: #6366f1;
+            --brand-secondary: #10b981;
+            --card-bg-light: #ffffff;
+            --nav-bg-light: rgba(255, 255, 255, 0.8);
+            
+            /* Shared across themes */
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+        }
+
+        /* Defaults mapping to theme */
+        :root {
+            --bg-color: var(--bg-color-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --surface-color: var(--surface-color-light);
+            --surface-border: var(--surface-border-light);
+            --card-bg: var(--card-bg-light);
+            --nav-bg: var(--nav-bg-light);
+        }
+
+        .dark-theme {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Styling */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 7rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--brand-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-actions .btn-large {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .card[style*="display: flex"] {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            .persona-grid {
+                grid-template-columns: 1fr !important;
+            }
+            section {
+                padding: 4rem 0 !important;
+            }
+            .hero {
+                padding: 6rem 0 2rem !important;
+            }
+            .decision-highlight {
+                padding: 2rem !important;
+            }
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 28px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            border-color: var(--brand-primary);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .info-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight {
+            background: linear-gradient(135deg, var(--brand-primary), #6366F1);
+            color: white;
+            padding: 5rem;
+            border-radius: 40px;
+            margin: 4rem 0;
+            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25);
+        }
+
+        .decision-highlight h3 {
+            color: white;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--surface-border);
+            padding: 0.8rem 1.6rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-nav:hover {
+            transform: translateX(-8px);
+            background: #fff;
+            color: #0f172a;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    </script>
+    <a href="../index.html#work" class="back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back to Work
+    </a>
+
+    <div class="case-study-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="section-heading">Case Study</span>
+            <h1 class="hero-title">Rentsomeware</h1>
+            <p class="hero-subtitle">Peer-to-peer rental platform combining social media and e-commerce.</p>
+
+            <div class="hero-tags">
+                <span class="tag">Rental Ecosystem</span>
+                <span class="tag">Peer-to-Peer</span>
+                <span class="tag">Sharing Economy</span>
+                <span class="tag">Marketplace</span>
+            </div>
+
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="https://www.canva.com/design/DAHDAMtwnKE/kd2lu6bLxPOeD4B_LDAmNw/view?utm_content=DAHDAMtwnKE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h518c8b8d12" target="_blank" class="btn btn-primary" style="margin: 0;">
+                    <i class="fa-solid fa-file-pdf"></i> View Document
+                </a>
+                <a href="https://stitch.withgoogle.com/preview/15260428886624526299?node-id=c5f2e89de5764d448cbf767be47cc498" target="_blank" class="btn btn-outline" style="margin: 0; background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 50px;">
+                    <i class="fa-solid fa-layer-group"></i> View Prototype
+                </a>
+            </div>
+
+            <div class="hero-visual" style="max-width: 1000px; width: 100%; margin: 2rem auto; padding: 2rem; background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); height: auto !important; overflow: hidden; display: block !important;">
+                <img src="../assets/featureGraphic/rentsomeware.png" alt="Rentsomeware App Preview" style="width: 100%; height: auto; border-radius: 12px; object-fit: contain;">
+            </div>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" data-scroll>
+            <div class="grid-2">
+                <div class="overview-text">
+                    <span class="section-heading">Overview</span>
+                    <h2>Trust-first Local Rental Community</h2>
+                    <p>
+                        Rentsomeware allows users to rent products they need occasionally and rent out their unused products to earn extra money.
+                    </p>
+                    <p>
+                        By focusing on trust, the platform solves core pain points such as safety, product damage risk, and payment assurance. It aims to make renting a smarter and more sustainable choice than buying.
+                    </p>
+                </div>
+                <div class="overview-info">
+                    <div class="card">
+                        <div class="info-item">
+                            <span class="info-label">Product Vision</span>
+                            <span class="info-value">Trusted community-driven marketplace</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Target Users</span>
+                            <span class="info-value">Renters & Item Owners</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phase</span>
+                            <span class="info-value">MVP Definition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" data-scroll>
+            <span class="section-heading">Problem Statement</span>
+            <h2>Why not just buy it?</h2>
+            <p>Buying products for one-time or occasional use is too expensive. At the same time, many people have products lying unused at home with no easy way to monetize them.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: var(--brand-primary);">User Pain Points</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-dollar-sign" style="margin-top: 0.3rem;"></i>
+                            <span>Expensive to buy items for one-time use</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-top: 0.3rem;"></i>
+                            <span>Fear of product damage or theft</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-shield-cat" style="margin-top: 0.3rem;"></i>
+                            <span>No trusted platform to rent items locally</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: var(--brand-primary);">Our Goals</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-magnifying-glass-location" style="margin-top: 0.3rem;"></i>
+                            <span>Easily find and rent products nearby</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-money-bill-transfer" style="margin-top: 0.3rem;"></i>
+                            <span>Rent out unused items and earn income</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-shield-halved" style="margin-top: 0.3rem;"></i>
+                            <span>Complete rentals safely with verified users</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Personas -->
+        <section id="personas" data-scroll>
+            <span class="section-heading">User Personas</span>
+            <h2>Understanding the Users</h2>
+            <div class="card" style="padding: 3.5rem; margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2.5rem;">
+                    <div style="width: 84px; height: 84px; background: #e0e7ff; color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.25rem;">
+                        <i class="fa-solid fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.75rem;">Lakshmi - The Item Owner</h3>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Mother, Homemaker & Tailor</span>
+                    </div>
+                </div>
+                <p style="margin-bottom: 1.5rem;">She goes to temples every day and travels long distances with friends. She makes some side income via neighborhood tailoring jobs.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                    <div>
+                        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">Goals</h4>
+                        <ul style="padding-left: 1.25rem; color: var(--text-secondary);">
+                            <li>Earn extra money from unused items at home</li>
+                            <li>Avoid clutter and storage issues</li>
+                            <li>Ensure her goods are rented on a safe platform</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">Pain Points</h4>
+                        <ul style="padding-left: 1.25rem; color: var(--text-secondary);">
+                            <li>Fear of product damage or theft</li>
+                            <li>Lack of insurance or payment security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="gap: 2rem;">
+                <div class="card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Renters</h3>
+                    <ul style="list-style: disc; padding-left: 1.25rem; color: var(--text-secondary);">
+                        <li>Students</li>
+                        <li>Young professionals</li>
+                        <li>Event organizers</li>
+                        <li>Travelers</li>
+                        <li>Content creators</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Item Owners</h3>
+                    <ul style="list-style: disc; padding-left: 1.25rem; color: var(--text-secondary);">
+                        <li>Photographers</li>
+                        <li>Tool owners</li>
+                        <li>Small businesses</li>
+                        <li>People with unused household equipment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Research -->
+        <section id="market" data-scroll>
+            <span class="section-heading">Market Size & Landscape</span>
+            <h2>Business Opportunity</h2>
+            
+            <div class="grid-2" style="margin-bottom: 3rem;">
+                <div class="card">
+                    <h3 style="color: var(--brand-primary); margin-bottom: 0.5rem;">TAM: $335 Billion</h3>
+                    <p style="font-size: 0.95rem;">Global sharing economy / peer-to-peer rental market.</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--brand-primary); margin-bottom: 0.5rem;">SAM: $8–10 Billion</h3>
+                    <p style="font-size: 0.95rem;">Urban rental marketplace in India (Students, freelancers, tools, electronics).</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--brand-primary); margin-bottom: 0.5rem;">SOM: $80–100 Million</h3>
+                    <p style="font-size: 0.95rem;">Expected early-stage capture in Tier-1 cities (Bangalore, Chennai, Mumbai, Delhi).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Competitors</h3>
+                <p><strong>Direct:</strong> Fat Llama, Rent Mojo, Airbnb</p>
+                <p><strong>Indirect:</strong> OLX, Flipkart, Amazon</p>
+            </div>
+        </section>
+
+        <!-- OKRs & Priorities -->
+        <section id="okr" data-scroll>
+            <span class="section-heading">Strategy</span>
+            <h2>OKRs & MVP Scope</h2>
+            
+            <div class="decision-highlight" style="padding: 3rem; margin-top: 2rem;">
+                <h3 style="font-size: 1.5rem;">Objective</h3>
+                <p>Enable users to earn side income by renting their unused products.</p>
+                <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 1rem;">Key Results</h3>
+                <ul style="list-style: disc; padding-left: 1.5rem; color: white;">
+                    <li>List 500+ rentable products within 6 months</li>
+                    <li>Onboard 200 active product owners</li>
+                    <li>Achieve 100 successful rental transactions</li>
+                    <li>Generate ₹2L rental transaction value</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">MVP Scope (MoSCoW)</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4 style="color: var(--brand-secondary);">Must Have</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li>User Authentication & Verification</li>
+                        <li>Product Listing System</li>
+                        <li>Product Discovery & Booking</li>
+                    </ul>
+                    <h4 style="color: var(--brand-secondary);">Should Have</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                        <li>Video-Based Product Verification</li>
+                        <li>Rental Tracking Dashboard</li>
+                    </ul>
+                </div>
+                <div class="card" style="opacity: 0.9;">
+                    <h4>Could Have</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li>Ratings and reviews</li>
+                        <li>Detailed insurance protection</li>
+                    </ul>
+                    <h4>Won't Have (For MVP)</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                        <li>Advanced analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learnings & Metrics -->
+        <section id="execution" data-scroll>
+            <span class="section-heading">Launch Readiness</span>
+            <h2>Success Metrics & Learnings</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Success Metrics</h3>
+                    <ul style="list-style: square; padding-left: 1.25rem; color: var(--text-secondary);">
+                        <li>Number of products listed on the platform</li>
+                        <li>Active renters and product owners</li>
+                        <li>Successful rental transactions</li>
+                        <li>User retention rate (repeat rentals)</li>
+                        <li>Average rental transaction value</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: rgba(99, 102, 241, 0.05); border-color: rgba(99, 102, 241, 0.2);">
+                    <h3 style="margin-bottom: 1rem;">Key Initial Learnings</h3>
+                    <ul style="list-style: square; padding-left: 1.25rem; color: var(--text-secondary);">
+                        <li><strong>Trust is Paramount:</strong> Trust and safety are the most important factors in peer-to-peer rentals.</li>
+                        <li><strong>Keep it Simple:</strong> Early MVP should strictly focus on core marketplace functionality.</li>
+                        <li><strong>Balance is Key:</strong> Success depends entirely on balancing supply and demand simultaneously.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta" data-scroll style="padding: 5rem 0; text-align: center; border-top: 1px solid var(--surface-border); margin-top: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Explore Full Details</h2>
+            <p style="margin-bottom: 3rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Dive deeper into the Rentsomeware documentation or try out the prototype locally.</p>
+
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://www.canva.com/design/DAHDAMtwnKE/kd2lu6bLxPOeD4B_LDAmNw/view?utm_content=DAHDAMtwnKE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h518c8b8d12" target="_blank" class="btn btn-primary" style="margin: 0;">
+                    <i class="fa-solid fa-file-pdf"></i> View Document
+                </a>
+                <a href="https://stitch.withgoogle.com/preview/15260428886624526299?node-id=c5f2e89de5764d448cbf767be47cc498" target="_blank" class="btn btn-outline" style="margin: 0; background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 50px;">
+                    <i class="fa-solid fa-layer-group"></i> View Prototype
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--surface-border);">
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">&copy; 2026 Visswa Aravind. Lead Product Manager.</p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-scroll]').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

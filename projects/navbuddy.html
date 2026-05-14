@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBuddy | Hardware-Enabled Pet Tracking Case Study</title>
+    <meta name="description"
+        content="Product Management case study for NavBuddy, a hardware-enabled pet tracking solution paired with a mobile application.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-primary: #6366F1;
+            --brand-secondary: #22C55E;
+        }
+
+        .light-theme {
+            --bg-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --surface-color: #f9fafb;
+            --surface-border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-theme {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Styling */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 0.35rem 0.85rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            width: 100%;
+            max-width: 900px;
+            margin: 3rem 0;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.2);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #f3f4f6;
+        }
+
+        .hero-visual:hover {
+            transform: scale(1.01);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-actions .btn-large {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .card[style*="display: flex"] {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            .persona-grid {
+                grid-template-columns: 1fr !important;
+            }
+            section {
+                padding: 4rem 0 !important;
+            }
+            .hero {
+                padding: 6rem 0 2rem !important;
+            }
+            .decision-highlight {
+                padding: 2rem !important;
+            }
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            border-color: var(--brand-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+            transform: translateY(-4px);
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Apple/Linear Typography */
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .decision-highlight {
+            background: linear-gradient(135deg, var(--brand-primary), #4f46e5);
+            color: white;
+            padding: 4rem;
+            border-radius: 32px;
+            margin: 4rem 0;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .decision-highlight h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100px;
+        }
+
+        .tool-item img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .tool-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--surface-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .back-nav:hover {
+            transform: translateX(-5px);
+            background: #fff;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 8rem 0;
+            background: var(--surface-color);
+            border-radius: 40px;
+            margin: 6rem 0;
+        }
+
+        .btn-large {
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-black {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .btn-black:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Screenshot Carousel */
+        .screenshot-carousel {
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.5s ease;
+            width: max-content;
+            padding: 2rem 0;
+        }
+
+        .carousel-item {
+            flex: 0 0 280px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border: 4px solid #fff;
+        }
+
+        /* Scroll Animations */
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    </script>
+    <a href="../index.html#work" class="back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back to Work
+    </a>
+
+    <div class="case-study-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="section-heading">Case Study</span>
+            <h1 class="hero-title">NavBuddy</h1>
+            <p class="hero-subtitle">Hardware Enabled Pet Tracking Device Paired With Mobile App</p>
+
+            <div class="hero-tags">
+                <span class="tag">IoT</span>
+                <span class="tag">Pet Tech</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">GPS Tracking</span>
+                <span class="tag">Hardware + Software</span>
+            </div>
+
+            <div class="hero-visual">
+                <img src="../assets/featureGraphic/NavBuddy.png" alt="NavBuddy Hero">
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.location_tracker&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/navbuddy-petals-pet-tracker/id6749218656" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1O6LZ7l33Xo4GlfXSRbkf_7pHK5pnEJvD/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" data-scroll>
+            <div class="grid-2">
+                <div class="overview-text">
+                    <span class="section-heading">Overview</span>
+                    <h2>Peace of Mind for Pet Owners</h2>
+                    <p>
+                        NavBuddy is a hardware-enabled pet tracking solution designed to help pet owners and livestock
+                        owners monitor their animals in real time. In recent years, many pets and cattle are lost due to
+                        wandering, theft, or accidents, creating emotional and financial stress for owners.
+                    </p>
+                    <p>
+                        NavBuddy combines a lightweight tracking device attached to the pet’s collar with a mobile
+                        application, enabling real-time location tracking, activity monitoring, geofencing alerts, and
+                        basic health insights. The solution helps users ensure safety and gain visibility into their
+                        pets’ daily movement patterns.
+                    </p>
+                </div>
+                <div class="overview-info">
+                    <div class="card">
+                        <div class="info-item">
+                            <span class="info-label">Product Type</span>
+                            <span class="info-value">Mobile App + Hardware Device</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Platform</span>
+                            <span class="info-value">Android & iOS</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Target Users</span>
+                            <span class="info-value">Pet Owners, Cattlemen</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tech Stack</span>
+                            <span class="info-value">Flutter, Node.js, AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" data-scroll>
+            <span class="section-heading">Problem Statement</span>
+            <h2>The Invisible Leash</h2>
+            <p>Pet owners and cattlemen lacked a reliable way to track the real-time location, movement, and activity of
+                their animals.</p>
+
+            <div class="persona-grid" style="margin-top: 2rem;">
+                <div class="card">
+                    <h4 style="margin-bottom: 1rem; font-weight: 700;">Who Was Affected</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-user-shield" style="color: var(--brand-primary);"></i>
+                            <span>Pet owners wanting to ensure safety</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-cow" style="color: var(--brand-primary);"></i>
+                            <span>Cattlemen managing wandering livestock</span>
+                        </li>
+                        <li style="display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-shop" style="color: var(--brand-primary);"></i>
+                            <span>Pet shop owners monitoring animals</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 1rem; font-weight: 700;">Impact if Unsolved</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
+                            <span>Difficulty locating lost animals</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-lock-open" style="color: #ef4444;"></i>
+                            <span>Increased risk of theft or loss</span>
+                        </li>
+                        <li style="display: flex; gap: 0.75rem;">
+                            <i class="fa-solid fa-chart-line" style="color: #ef4444;"></i>
+                            <span>No visibility into health routines</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Personas -->
+        <section id="personas" data-scroll>
+            <span class="section-heading">User Personas</span>
+            <h2>Understanding the Users</h2>
+            <div class="persona-grid">
+                <!-- Primary User -->
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; background: #e0e7ff; color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class="fa-solid fa-user-heart"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.25rem;">Pet Owner</h3>
+                            <span style="font-size: 0.875rem; color: var(--text-secondary);">Primary User</span>
+                        </div>
+                    </div>
+                    <h4
+                        style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Goals</h4>
+                    <ul style="padding-left: 1.2rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li>Track real-time pet location</li>
+                        <li>Monitor daily activity</li>
+                        <li>Ensure safety & prevent loss</li>
+                    </ul>
+                    <h4
+                        style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Pain Points</h4>
+                    <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
+                        <li>Locating missing pets</li>
+                        <li>No visibility into movement</li>
+                    </ul>
+                </div>
+                <!-- Secondary User -->
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; background: #dcfce7; color: var(--brand-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class="fa-solid fa-tractor"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.25rem;">Cattlemen</h3>
+                            <span style="font-size: 0.875rem; color: var(--text-secondary);">Secondary User</span>
+                        </div>
+                    </div>
+                    <h4
+                        style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Goals</h4>
+                    <ul style="padding-left: 1.2rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li>Monitor cattle across large areas</li>
+                        <li>Track activity patterns</li>
+                    </ul>
+                    <h4
+                        style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Pain Points</h4>
+                    <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
+                        <li>Tracking across wide regions</li>
+                        <li>Limited health insights</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Goals & Success Metrics -->
+        <section id="goals" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Product Goals</span>
+                    <h2>Establishing Objectives</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 28px; height: 28px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Enable reliable tracking of pets and livestock</span>
+                        </li>
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 28px; height: 28px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Provide visibility into daily activity and movement</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 28px; height: 28px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Improve safety and peace of mind for owners</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-heading">Success Metrics</span>
+                    <div class="card">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.25rem; margin-bottom: 0.25rem;">Active
+                                    Usage</strong>
+                                <span style="color: var(--text-secondary);">Increase in DAU/MAU among pet and livestock
+                                    owners.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.25rem; margin-bottom: 0.25rem;">Recovery
+                                    Time</strong>
+                                <span style="color: var(--text-secondary);">Reduction in time taken to locate and
+                                    recover lost animals.</span>
+                            </li>
+                            <li>
+                                <strong
+                                    style="display: block; font-size: 1.25rem; margin-bottom: 0.25rem;">Reliability</strong>
+                                <span style="color: var(--text-secondary);">Positive feedback on tracking accuracy and
+                                    signal uptime.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Overview -->
+        <section id="solution" data-scroll>
+            <span class="section-heading">The Solution</span>
+            <h2>Bridging Hardware and Software</h2>
+            <p>
+                NavBuddy was designed as a hardware-enabled tracking solution that combines a lightweight tracking
+                device with a mobile application. The device continuously tracks the pet’s location and sends data to
+                the mobile app, allowing owners to monitor movement and activity in real time.
+            </p>
+
+            <p>
+                Users can define safe zones using geofencing and receive alerts when pets move outside these boundaries.
+                Activity monitoring and basic health insights provide additional visibility into pets’ routines, helping
+                owners ensure safety and well-being.
+            </p>
+        </section>
+
+        <!-- Key Product Decision -->
+        <section id="decision" data-scroll>
+            <div class="decision-highlight">
+                <span class="section-heading" style="color: rgba(255,255,255,0.7);">Critical Product Decision</span>
+                <h3>Dedicated Hardware over Mobile-Only</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 0.75rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                            Context</h4>
+                        <p style="font-size: 1.1rem; margin-bottom: 0;">Mobile-only solutions relying on Bluetooth or
+                            proximity were not reliable enough for real-time tracking when pets wander alone.</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 0.75rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                            Rationale</h4>
+                        <p style="font-size: 1.1rem; margin-bottom: 0;">A dedicated GPS + GSM device enabled continuous
+                            monitoring independent of the owner's phone, providing true real-time geofencing and
+                            activity insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP & Prioritization -->
+        <section id="prioritization" data-scroll>
+            <span class="section-heading">Prioritization</span>
+            <h2>MVP vs. Future Roadmap</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--brand-primary);">MVP Features</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                            <span>Real-time pet location tracking</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                            <span>Geofencing with boundary alerts</span>
+                        </li>
+                        <li style="display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                            <span>Basic activity monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="opacity: 0.7;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Future Roadmap</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                            <span>Advanced health monitoring</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                            <span>Step count analytics (Steps/Calories)</span>
+                        </li>
+                        <li style="display: flex; gap: 0.85rem;">
+                            <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                            <span>Two-way device calling</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 2rem; border-left: 6px solid var(--brand-primary);">
+                <p style="margin: 0; font-size: 1.1rem; font-style: italic;">
+                    <strong>Reason for prioritization:</strong> Real-time location tracking addressed the most critical
+                    user problem — locating lost pets — and was prioritized to validate the core product value quickly.
+                </p>
+            </div>
+        </section>
+
+        <!-- Execution & Collaboration -->
+        <section id="execution" data-scroll>
+            <span class="section-heading">Execution</span>
+            <h2>The Collaborative Effort</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">The Team</h3>
+                    <p>Building a hardware-enabled product required close synchronization between embedded engineers and
+                        mobile developers.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span class="tag">Embedded Hardware</span>
+                        <span class="tag">Mobile (Flutter)</span>
+                        <span class="tag">Backend (Node.js)</span>
+                        <span class="tag">Cloud (AWS)</span>
+                        <span class="tag">Manual QA</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Key Challenge</h3>
+                    <p style="font-size: 1rem; margin-bottom: 1rem;">
+                        Managing dependencies between hardware board revisions and mobile application delivery was a
+                        major constraint.
+                    </p>
+                    <p style="font-size: 1rem; margin-bottom: 0;">
+                        <strong>Process:</strong> Shared sprint cycles and daily standups helped coordinate these
+                        complex dependencies.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section id="tools" data-scroll>
+            <span class="section-heading">Tech Stack</span>
+            <h2>Tools & Technologies</h2>
+            <div class="tool-icon-grid">
+                <div class="tool-item">
+                    <img src="../assets/icons/Figma.png" alt="Figma">
+                    <span class="tool-name">Figma</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/flutter.png" alt="Flutter">
+                    <span class="tool-name">Flutter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/android-studio.png" alt="Android Studio">
+                    <span class="tool-name">Android Studio</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/firebase.png" alt="AWS">
+                    <span class="tool-name">AWS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/jira.png" alt="Jira">
+                    <span class="tool-name">Jira</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes & Impact -->
+        <section id="outcomes" data-scroll>
+            <span class="section-heading">Outcomes & Impact</span>
+            <div class="grid-2">
+                <div>
+                    <h2>Measured Success</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.25rem;"></i>
+                            <strong>Enabled real-time tracking of pets</strong>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.25rem;"></i>
+                            <strong>Improved monitoring of daily activity patterns</strong>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check"
+                                style="color: var(--brand-secondary); font-size: 1.25rem;"></i>
+                            <strong>Provided geofencing alerts for safety</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="background: rgba(99, 102, 241, 0.05); border-color: rgba(99, 102, 241, 0.2);">
+                    <h4 style="margin-bottom: 1.5rem; color: var(--brand-primary); font-weight: 700;">Long-term Impact
+                    </h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-face-smile" style="color: var(--brand-primary);"></i>
+                            <span>Reduced anxiety among pet owners globally</span>
+                        </li>
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-shield-dog" style="color: var(--brand-primary);"></i>
+                            <span>Improved safety for both domestic pets and livestock</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-arrow-trend-up" style="color: var(--brand-primary);"></i>
+                            <span>Increased user confidence in IoT-enabled monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta" data-scroll>
+            <h2 style="margin-bottom: 1rem;">Ready to Track What Matters?</h2>
+            <p
+                style="margin-bottom: 3rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">
+                Download the NavBuddy app and pair your device to ensure the safety of your animals.</p>
+
+
+
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.location_tracker&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/navbuddy-petals-pet-tracker/id6749218656" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1O6LZ7l33Xo4GlfXSRbkf_7pHK5pnEJvD/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--surface-border);">
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">&copy; 2026 Visswa Aravind. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-scroll]').forEach(el => observer.observe(el));
+
+            // Simple Auto-Scroll Carousel for Screenshots
+            const track = document.querySelector('.carousel-track');
+            let scrollAmount = 0;
+
+            function step() {
+                scrollAmount -= 1.5;
+                if (Math.abs(scrollAmount) >= 312) { // item width (280) + gap (32)
+                    track.appendChild(track.firstElementChild);
+                    scrollAmount = 0;
+                }
+                track.style.transform = `translateX(${scrollAmount}px)`;
+                requestAnimationFrame(step);
+            }
+            // requestAnimationFrame(step); // Optional: Uncomment for auto-scroll
+        });
+    </script>
+</body>
+
+</html>

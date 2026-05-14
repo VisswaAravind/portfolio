@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Branded Gym Apps | Product Case Study</title>
+    <meta name="description"
+        content="Product Management case study for Multi Branded Gym Apps, a mobile application designed to digitize gym operations and fitness tracking.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-primary: #4F46E5;
+            --brand-secondary: #22C55E;
+        }
+
+        .light-theme {
+            --bg-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --surface-color: #f9fafb;
+            --surface-border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-theme {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Styling */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 0.35rem 0.85rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-visual:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-actions .btn-large {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .card[style*="display: flex"] {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            .persona-grid {
+                grid-template-columns: 1fr !important;
+            }
+            section {
+                padding: 4rem 0 !important;
+            }
+            .hero {
+                padding: 6rem 0 2rem !important;
+            }
+            .decision-highlight {
+                padding: 2rem !important;
+            }
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--brand-primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Apple/Linear Typography */
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-impact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            width: 80px;
+        }
+
+        .tool-item img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: grayscale(1);
+            transition: filter 0.3s ease;
+        }
+
+        .tool-item:hover img {
+            filter: grayscale(0);
+        }
+
+        .tool-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .decision-highlight {
+            background: linear-gradient(135deg, var(--brand-primary), #6366f1);
+            color: white;
+            padding: 3rem;
+            border-radius: 24px;
+            margin: 3rem 0;
+        }
+
+        .decision-highlight h3 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .decision-highlight p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--surface-border);
+            padding: 0.75rem 1.25rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 6rem 0;
+            background: var(--surface-color);
+            border-radius: 32px;
+            margin: 4rem 0;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-black {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .btn-black:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <script>
+        // Sync theme immediately to prevent flashing
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    </script>
+    <a href="../index.html#work" class="back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back to Work
+    </a>
+
+    <div class="case-study-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="section-heading">Case Study</span>
+            <h1 class="hero-title">Multi Branded Gym Apps</h1>
+            <p class="hero-subtitle">Product Management Portfolio Case Study</p>
+
+            <div class="hero-tags">
+                <span class="tag">Fitness</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">Health Tech</span>
+                <span class="tag">B2B2C</span>
+            </div>
+
+            <div class="hero-visual">
+                <img src="../assets/featureGraphic/Multibrandedgymapps.png" alt="Multi Branded Gym Apps Hero">
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.gym_apps.zym&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/zymmechanix/id6749257083" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1FunUV5UPDgW6XwhnvSwju8KZ6Az4FhXj/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" data-scroll>
+            <div class="grid-2">
+                <div class="overview-text">
+                    <span class="section-heading">Overview</span>
+                    <h2>Digitizing Gym Operations</h2>
+                    <p>
+                        Multi Branded Gym Apps is a mobile application designed to digitize gym operations and improve
+                        fitness tracking for gym members. Gym members often struggle to consistently track attendance,
+                        workouts, diet plans, and physical progress such as weight and height.
+                    </p>
+                    <p>
+                        Manual processes made it difficult for both users and gyms to maintain accurate records. This
+                        product centralized attendance, workouts, diet plans, and physical metrics into a single
+                        platform to simplify tracking and improve gym engagement.
+                    </p>
+                </div>
+                <div class="overview-info">
+                    <div class="card">
+                        <div class="info-item">
+                            <span class="info-label">Product Type</span>
+                            <span class="info-value">Mobile Application</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Platform</span>
+                            <span class="info-value">Android & iOS</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Target Users</span>
+                            <span class="info-value">Gym Members, Fitness Enthusiasts</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tech Stack</span>
+                            <span class="info-value">Flutter, PHP, AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" data-scroll>
+            <span class="section-heading">Problem Statement</span>
+            <h2>The Friction in Fitness</h2>
+            <p>Gym members lacked a simple and consistent way to track attendance, workouts, diet plans, and physical
+                progress.</p>
+
+            <div class="problem-impact">
+                <div class="card">
+                    <h4 style="margin-bottom: 1rem; font-weight: 700;">Who Was Affected</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                            <i class="fa-solid fa-user-check" style="color: var(--brand-primary);"></i>
+                            <span>Gym members wanting structured tracking</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i class="fa-solid fa-building-user" style="color: var(--brand-primary);"></i>
+                            <span>Gym owners managing attendance manually</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 1rem; font-weight: 700;">Impact if Unsolved</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                            <i class="fa-solid fa-chart-line-down" style="color: var(--brand-primary);"></i>
+                            <span>Poor visibility of fitness progress</span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                            <i class="fa-solid fa-face-frown" style="color: var(--brand-primary);"></i>
+                            <span>Reduced user motivation</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i class="fa-solid fa-clock" style="color: var(--brand-primary);"></i>
+                            <span>Inefficient gym operations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Persona -->
+        <section id="persona" data-scroll>
+            <span class="section-heading">User Persona</span>
+            <div class="card" style="display: flex; gap: 2rem; align-items: center; padding: 3rem;">
+                <div
+                    style="flex: 0 0 120px; height: 120px; background: #e5e7eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #9ca3af;">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h3>Gym Member / Fitness Enthusiast</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <h4
+                                style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                Goals</h4>
+                            <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Track attendance</li>
+                                <li>Monitor workout progress</li>
+                                <li>Maintain diet consistency</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                Pain Points</h4>
+                            <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Manual tracking methods</li>
+                                <li>Fragmented data</li>
+                                <li>No centralized progress dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Goals & Success Metrics -->
+        <section id="goals" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Product Goals</span>
+                    <h2>Defining Success</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 24px; height: 24px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Digitize gym attendance</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 24px; height: 24px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Provide structured workout tracking</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem; font-size: 1.125rem;">
+                            <div
+                                style="width: 24px; height: 24px; background: var(--brand-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Improve user engagement and retention</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-heading">Success Metrics</span>
+                    <div class="card">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li
+                                style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.25rem;">App Adoption</strong>
+                                <span style="color: var(--text-secondary);">Targeted increase in daily active users
+                                    across franchises.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.25rem;">Manual Load</strong>
+                                <span style="color: var(--text-secondary);">Reduction in manual attendance handling
+                                    time.</span>
+                            </li>
+                            <li>
+                                <strong style="display: block; font-size: 1.25rem;">Consistency</strong>
+                                <span style="color: var(--text-secondary);">Improved workout and diet consistency
+                                    reported by users.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Overview -->
+        <section id="solution" data-scroll>
+            <span class="section-heading">The Solution</span>
+            <h2>A Centralized Fitness Hub</h2>
+            <p>
+                A mobile application was built to digitize gym attendance and fitness tracking. The platform centralized
+                attendance, workouts, diet plans, and physical metrics into one system, reducing manual effort for gyms
+                and making progress tracking easier for users.
+            </p>
+
+            <p>
+                The architecture also supports launching multiple gym apps using a shared product foundation, allowing
+                for rapid expansion.
+            </p>
+        </section>
+
+        <!-- Key Product Decision -->
+        <section id="decision" data-scroll>
+            <div class="decision-highlight">
+                <span class="section-heading" style="color: rgba(255,255,255,0.7);">Critical Decision</span>
+                <h3>Single Codebase for Multiple Brands</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem;">
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                            Context</h4>
+                        <p style="font-size: 1rem; margin-bottom: 0;">The business planned to launch similar gym apps
+                            for multiple franchises rapidly.</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                            Rationale</h4>
+                        <ul style="font-size: 1rem; color: rgba(255,255,255,0.9); padding-left: 1.2rem;">
+                            <li>Faster launch for new gyms</li>
+                            <li>Reduced development effort</li>
+                            <li>Easier maintenance & Scalable architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP & Prioritization -->
+        <section id="mvp" data-scroll>
+            <span class="section-heading">Path to Market</span>
+            <h2>MVP & Rationale</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">MVP Features</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                                <span>Member attendance tracking</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                                <span>Height and weight tracking</span>
+                            </li>
+                            <li style="display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--brand-secondary);"></i>
+                                <span>User profile management</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="card" style="opacity: 0.7;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Future Roadmap</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                                <span>Advanced diet plans</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                                <span>Trainer-led workout customization</span>
+                            </li>
+                            <li style="display: flex; gap: 0.75rem;">
+                                <i class="fa-solid fa-clock-rotate-left" style="color: var(--text-secondary);"></i>
+                                <span>Smart fitness dashboards</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-style: italic;">
+                <strong>Reason for prioritization:</strong> Attendance tracking solved the most critical operational
+                problem and validated the product early.
+            </p>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section id="tools" data-scroll>
+            <span class="section-heading">Tech Stack</span>
+            <h2>Tools & Technologies</h2>
+            <div class="tool-icon-grid">
+                <div class="tool-item">
+                    <img src="../assets/icons/Figma.png" alt="Figma">
+                    <span class="tool-name">Figma</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/flutter.png" alt="Flutter">
+                    <span class="tool-name">Flutter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/android-studio.png" alt="Android Studio">
+                    <span class="tool-name">Android Studio</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/firebase.png" alt="Cloud">
+                    <span class="tool-name">Firebase/AWS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/jira.png" alt="Jira">
+                    <span class="tool-name">Jira</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Execution & Collaboration -->
+        <section id="execution" data-scroll>
+            <span class="section-heading">Team & Execution</span>
+            <h2>Execution & Collaboration</h2>
+            <p>
+                Successfully delivering this product required seamless coordination across a multi-functional team.
+                Stakeholders involved included Designers, Frontend/Backend Developers, QA Testers, and Marketing.
+            </p>
+            <div class="card">
+                <h4 style="margin-bottom: 1rem; font-weight: 700;">Stakeholders</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <span class="tag">Design</span>
+                    <span class="tag">Mobile Dev</span>
+                    <span class="tag">Backend</span>
+                    <span class="tag">QA</span>
+                    <span class="tag">Cloud</span>
+                    <span class="tag">Marketing</span>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 1rem;">
+                    The teams worked in <strong>shared sprint cycles</strong> with daily standups to coordinate design,
+                    development, testing, and release. This ensured that dependencies were managed effectively and the
+                    project stayed on track.
+                </p>
+            </div>
+        </section>
+
+        <!-- Release Strategy -->
+        <section id="release" data-scroll>
+            <span class="section-heading">Strategy</span>
+            <h2>Release Strategy</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Scrumban Approach</h3>
+                    <p style="font-size: 1rem;">
+                        A hybrid <strong>Scrumban</strong> approach was used to deliver incremental releases while
+                        supporting continuous improvements. This allowed us to be flexible with changing requirements
+                        while maintaining a steady flow of delivery.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Gradual Rollout</h3>
+                    <p style="font-size: 1rem;">
+                        Complex features such as workout timers and dashboards were released gradually to reduce risk.
+                        This phased approach allowed us to gather user feedback and iterate on features before a
+                        full-scale launch.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes & Impact -->
+        <section id="outcomes" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Outcomes</span>
+                    <h2>Key Accomplishments</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-check-double" style="color: var(--brand-secondary);"></i>
+                            <span>Eliminated manual attendance tracking</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-check-double" style="color: var(--brand-secondary);"></i>
+                            <span>Simplified workout progress monitoring</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-check-double" style="color: var(--brand-secondary);"></i>
+                            <span>Enabled multiple gym apps using one platform</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-heading">Impact</span>
+                    <div class="card"
+                        style="background: rgba(34, 197, 94, 0.05); border-color: rgba(34, 197, 94, 0.2);">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                                <i class="fa-solid fa-bolt" style="color: var(--brand-secondary);"></i>
+                                <span>Reduced operational effort for gyms</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                                <i class="fa-solid fa-bolt" style="color: var(--brand-secondary);"></i>
+                                <span>Improved member engagement</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem;">
+                                <i class="fa-solid fa-bolt" style="color: var(--brand-secondary);"></i>
+                                <span>Faster onboarding for new franchises</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA & App Links -->
+        <div class="footer-cta" data-scroll>
+            <h2 style="margin-bottom: 1rem;">Ready to See It in Action?</h2>
+            <p style="margin-bottom: 2.5rem;">Download the app and start your fitness journey today.</p>
+
+
+
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.gym_apps.zym&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/zymmechanix/id6749257083" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1FunUV5UPDgW6XwhnvSwju8KZ6Az4FhXj/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 4rem 0; text-align: center; border-top: 1px solid var(--surface-border);">
+        <p style="font-size: 0.875rem;">&copy; 2024 Visswa Aravind. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Specific scroll observer for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-scroll]').forEach(el => observer.observe(el));
+        });
+
+        // Carousel Logic
+        let currentPos = 0;
+        function moveCarousel(direction) {
+            const track = document.querySelector('.carousel-track');
+            const itemWidth = 250 + 32; // width + gap
+            const maxPos = track.children.length - 2;
+
+            currentPos += direction;
+            if (currentPos < 0) currentPos = 0;
+            if (currentPos > maxPos) currentPos = maxPos;
+
+            track.style.transform = `translateX(-${currentPos * itemWidth}px)`;
+        }
+    </script>
+</body>
+
+</html>

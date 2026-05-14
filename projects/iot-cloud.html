@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell-IOT | IoT Cloud Learning & Automation Platform</title>
+    <meta name="description"
+        content="Product Management case study for Spell-IOT, a cloud-based IoT learning and automation platform paired with a mobile application.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-primary: #6366F1;
+            --brand-secondary: #10B981;
+        }
+
+        .light-theme {
+            --bg-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --surface-color: #f9fafb;
+            --surface-border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-theme {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --surface-color: rgba(30, 41, 59, 0.4);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Styling */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem 0 4rem;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px -15px rgba(99, 102, 241, 0.2);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #fdfdfd;
+        }
+
+        .hero-visual:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 7rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--brand-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-actions .btn-large {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .card[style*="display: flex"] {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            .persona-grid {
+                grid-template-columns: 1fr !important;
+            }
+            section {
+                padding: 4rem 0 !important;
+            }
+            .hero {
+                padding: 6rem 0 2rem !important;
+            }
+            .decision-highlight {
+                padding: 2rem !important;
+            }
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 28px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            border-color: var(--brand-primary);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .info-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight {
+            background: linear-gradient(135deg, var(--brand-primary), #4F46E5);
+            color: white;
+            padding: 5rem;
+            border-radius: 40px;
+            margin: 4rem 0;
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .decision-highlight h3 {
+            color: white;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .decision-highlight p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0;
+        }
+
+        .tool-icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            width: 100px;
+        }
+
+        .tool-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tool-item:hover img {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--surface-border);
+            padding: 0.8rem 1.6rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-nav:hover {
+            transform: translateX(-8px);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 10rem 0;
+            background: var(--surface-color);
+            border-radius: 48px;
+            margin: 6rem 0;
+        }
+
+        .btn-large {
+            padding: 1.4rem 3.5rem;
+            font-size: 1.15rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-black {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .btn-black:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Screenshot Carousel */
+        .screenshot-carousel-container {
+            margin: 5rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 3rem;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            width: max-content;
+            padding: 2rem 0;
+        }
+
+        .carousel-item {
+            flex: 0 0 320px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            border-radius: 36px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border: 6px solid var(--surface-border);
+        }
+
+        /* Scroll Animation Utility */
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    </script>
+    <a href="../index.html#work" class="back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back to Work
+    </a>
+
+    <div class="case-study-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="section-heading">Case Study</span>
+            <h1 class="hero-title">Spell-IOT</h1>
+            <p class="hero-subtitle">IoT Cloud Learning & Automation Platform</p>
+
+            <div class="hero-tags">
+                <span class="tag">IoT</span>
+                <span class="tag">Cloud Platform</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">Hardware Integration</span>
+            </div>
+
+            <div class="hero-visual">
+                <img src="../assets/featureGraphic/iot_cloud.png" alt="Spell-IOT App Preview">
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.iotcloud&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/spell-iot/id6757735094" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1Itq_wV4PazAKhOEJExu4ia9a6Y-_oZcT/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" data-scroll>
+            <div class="grid-2">
+                <div class="overview-text">
+                    <span class="section-heading">Overview</span>
+                    <h2>Simplifying the Internet of Things</h2>
+                    <p>
+                        Spell-IOT is a cloud-based IoT learning and device management platform designed to simplify how
+                        students, developers, and industries interact with IoT devices. Many learners struggle with
+                        implementing IoT because they must constantly write code and monitor outputs through development
+                        environments.
+                    </p>
+                    <p>
+                        The platform provides a mobile application with customizable dashboards where users can connect
+                        IoT devices and visualize outputs in real time. Users can build their own dashboards using
+                        widgets such as buttons, gauges, sliders, and charts to interact with connected hardware like
+                        ESP32 and ESP8266.
+                    </p>
+                </div>
+                <div class="overview-info">
+                    <div class="card">
+                        <div class="info-item">
+                            <span class="info-label">Product Type</span>
+                            <span class="info-value">Mobile App + IoT Cloud Platform</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Platform</span>
+                            <span class="info-value">Android & iOS</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Target Users</span>
+                            <span class="info-value">Students, Enthusiasts, Industries</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Hardware Support</span>
+                            <span class="info-value">ESP32, ESP8266</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tech Stack</span>
+                            <span class="info-value">Flutter, Spring Boot, AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" data-scroll>
+            <span class="section-heading">Problem Statement</span>
+            <h2>The Complexity Barrier</h2>
+            <p>Students and developers found it difficult to learn IoT and interact with hardware because it required
+                writing complex code and manually monitoring outputs through computers.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: var(--brand-primary);">Who Was Affected
+                    </h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-user-graduate" style="margin-top: 0.3rem;"></i>
+                            <span>Students and IoT learners discouraged by complexity</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-industry" style="margin-top: 0.3rem;"></i>
+                            <span>Industries relying on manual monitoring processes</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 1.5rem; font-weight: 700; color: #ef4444;">Impact if Unsolved</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-top: 0.3rem;"></i>
+                            <span>IoT learning remains time-consuming and difficult</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-low-vision" style="margin-top: 0.3rem;"></i>
+                            <span>Limited accessibility to real-time device outputs</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-chart-line-down" style="margin-top: 0.3rem;"></i>
+                            <span>Reduced global adoption of automation technologies</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Personas -->
+        <section id="personas" data-scroll>
+            <span class="section-heading">User Personas</span>
+            <h2>Designing for Diverse Innovators</h2>
+            <div class="persona-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <!-- Primary User -->
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div
+                            style="width: 70px; height: 70px; background: #e0e7ff; color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem;">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.5rem;">Student / IoT Learner</h3>
+                            <span
+                                style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em;">Primary
+                                User</span>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4
+                                style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">
+                                Goals</h4>
+                            <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                <li style="margin-bottom: 0.5rem;">Learn IoT easily</li>
+                                <li style="margin-bottom: 0.5rem;">Monitor device outputs via mobile</li>
+                                <li>Build custom experiments</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">
+                                Pain Points</h4>
+                            <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                <li style="margin-bottom: 0.5rem;">Writing complex device code</li>
+                                <li>No easy visualization tool</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Secondary User -->
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div
+                            style="width: 70px; height: 70px; background: #dcfce7; color: var(--brand-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem;">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.5rem;">Automation Engineer</h3>
+                            <span
+                                style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em;">Secondary
+                                User</span>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4
+                                style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">
+                                Goals</h4>
+                            <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                <li style="margin-bottom: 0.5rem;">Automate industrial workflows</li>
+                                <li style="margin-bottom: 0.5rem;">Monitor machines remotely</li>
+                                <li>Reduce manual effort</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 800;">
+                                Pain Points</h4>
+                            <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                <li style="margin-bottom: 0.5rem;">Time-consuming manual monitoring</li>
+                                <li>Limited real-time visibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Goals & Success Metrics -->
+        <section id="goals" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Product Goals</span>
+                    <h2>Redefining IoT Accessibility</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <span>Simplify IoT learning for students through abstraction</span>
+                        </li>
+                        <li style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-shapes"></i>
+                            </div>
+                            <span>Provide highly customizable drag-and-drop mobile dashboards</span>
+                        </li>
+                        <li style="display: flex; gap: 1.5rem; font-size: 1.15rem;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--brand-primary); color: white; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-solid fa-industry"></i>
+                            </div>
+                            <span>Enable industries to automate and monitor remotely with ease</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-heading">Success Metrics</span>
+                    <div class="card">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Connectivity
+                                    Growth</strong>
+                                <span style="color: var(--text-secondary);">Direct increase in active IoT device
+                                    connections per user.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--surface-border);">
+                                <strong style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Engagement
+                                    Rate</strong>
+                                <span style="color: var(--text-secondary);">Daily active usage trends among
+                                    student/learner personas.</span>
+                            </li>
+                            <li>
+                                <strong style="display: block; font-size: 1.3rem; margin-bottom: 0.5rem;">Churn
+                                    Prevention</strong>
+                                <span style="color: var(--text-secondary);">Reduction in user dropout rates during
+                                    initial setup phases.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Overview -->
+        <section id="solution" data-scroll>
+            <span class="section-heading">The Solution</span>
+            <h2>Cloud-Centric Mobile Visualization</h2>
+            <p>
+                Spell-IOT provides a cloud-connected mobile platform where users can interact with IoT devices in real
+                time. Users build custom dashboards using tokens, virtual pins, and datastreams to securely link
+                hardware like ESP32 with mobile widgets.
+            </p>
+
+            <p>
+                A drag-and-drop widget system (buttons, gauges, sliders, graphs) removes the need for complex mobile
+                development, allowing students and engineers to focus on hardware logic while visualizing data
+                instantly.
+            </p>
+        </section>
+
+        <!-- Key Product Decision -->
+        <section id="decision" data-scroll>
+            <div class="decision-highlight" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">
+                <span class="section-heading" style="color: rgba(255,255,255,0.7);">Critical Product Decision</span>
+                <h3>Customizable Virtual Dashboards</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;">
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 1.25rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">
+                            Context</h4>
+                        <p style="font-size: 1.15rem; line-height: 1.7;">Existing tools required writing different code
+                            for data visualization per device type, overwhelming new learners.</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: white; margin-bottom: 1.25rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">
+                            Rationale</h4>
+                        <p style="font-size: 1.15rem; line-height: 1.7;">Drag-and-drop widgets provided instant feedback
+                            for students and enabled industrial operators to build control panels without mobile dev
+                            skills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP & Prioritization -->
+        <section id="mvp" data-scroll>
+            <span class="section-heading">Prioritization</span>
+            <h2>MVP & Scaling Roadmap</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; color: #6366F1;">MVP (V1)</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; margin-top: 0.35rem;"></i>
+                            <span>Customizable IoT Dashboards</span>
+                        </li>
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; margin-top: 0.35rem;"></i>
+                            <span>Draggable Widget Boards (Buttons, Gauges)</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; margin-top: 0.35rem;"></i>
+                            <span>Virtual Pins and Datastream Engine</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="opacity: 0.8;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem;">V2 & Beyond</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-flask" style="margin-top: 0.35rem;"></i>
+                            <span>Node-based Automation Workflows</span>
+                        </li>
+                        <li style="margin-bottom: 1.25rem; display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-credit-card" style="margin-top: 0.35rem;"></i>
+                            <span>SaaS Payment Plans for advanced dashboards</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fa-solid fa-chart-pie" style="margin-top: 0.35rem;"></i>
+                            <span>Advanced Historical Data Analytics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card"
+                style="margin-top: 2rem; border-left: 8px solid #6366F1; background: rgba(99, 102, 241, 0.03);">
+                <p style="margin: 0; font-size: 1.15rem; font-style: italic;">
+                    <strong>Prioritization Strategy:</strong> Widget-based interaction was prioritized as it directly
+                    enabled the core value proposition: "See and Control your hardware instantly."
+                </p>
+            </div>
+        </section>
+
+        <!-- Execution & Collaboration -->
+        <section id="execution" data-scroll>
+            <span class="section-heading">Execution</span>
+            <h2>Cloud Sync & Hardware Pairing</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Multi-Disciplinary Team</h3>
+                    <p>Building an IoT platform required tight coordination between hardware protocol engineers and
+                        cloud developers.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                        <span class="tag">Embedded Systems</span>
+                        <span class="tag">Mobile (Flutter)</span>
+                        <span class="tag">Backend (Spring Boot)</span>
+                        <span class="tag">Cloud Infrastructure (AWS)</span>
+                        <span class="tag">QA Testing</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem; font-weight: 700;">The Hurdle</h3>
+                    <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+                        Managing dependencies between hardware device revisions, cloud socket stability, and mobile
+                        dashboard updates.
+                    </p>
+                    <p style="font-size: 1.05rem; margin-bottom: 0;">
+                        <strong>Method:</strong> Scrumban approach with focus on real-time WebSocket communication
+                        testing across hardware brands (ESP32/ESP8266).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section id="tools" data-scroll>
+            <span class="section-heading">Tech Stack</span>
+            <h2>The Engineering Toolbox</h2>
+            <div class="tool-icon-grid">
+                <div class="tool-item">
+                    <img src="../assets/icons/Figma.png" alt="Figma">
+                    <span class="tool-name">Figma</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/flutter.png" alt="Flutter">
+                    <span class="tool-name">Flutter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/Java.png" alt="Spring Boot">
+                    <span class="tool-name">Spring Boot</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/firebase.png" alt="AWS Cloud">
+                    <span class="tool-name">AWS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="../assets/icons/android-studio.png" alt="Android Studio">
+                    <span class="tool-name">Android Studio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes & Impact -->
+        <section id="outcomes" data-scroll>
+            <div class="grid-2">
+                <div>
+                    <span class="section-heading">Outcomes</span>
+                    <h2>A New Standard for IoT</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <strong>Real-time mobile interaction with IoT sensors</strong>
+                        </li>
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <strong>Drastic reduction in IoT learning curve for students</strong>
+                        </li>
+                        <li style="display: flex; gap: 1.25rem; font-size: 1.15rem;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <strong>Scalable industrial monitoring platform</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="background: rgba(99, 102, 241, 0.04); border-color: rgba(99, 102, 241, 0.2);">
+                    <h4
+                        style="margin-bottom: 1.5rem; color: #6366F1; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                        Global Impact</h4>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.25rem;">Democratized IoT development by removing the
+                        requirement for mobile frontend coding skills.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.25rem;">Accelerated industrial automation by providing
+                        low-cost, high-visibility dashboards for machinery monitoring.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0;">Supported over 100+ active student projects within
+                        the first quarter of launch.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta" data-scroll>
+            <h2 style="margin-bottom: 1.5rem;">Build Your Smart Future</h2>
+            <p
+                style="margin-bottom: 5rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Start learning IoT and automating your world with Spell-IOT's powerful cloud platform today.</p>
+
+
+
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://play.google.com/store/apps/details?id=com.petalsautomation.iotcloud&pcampaignid=web_share" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+                <a href="https://apps.apple.com/in/app/spell-iot/id6757735094" target="_blank" class="btn-large btn-black">
+                    <i class="fa-brands fa-apple"></i> App Store
+                </a>
+                <a href="https://drive.google.com/file/d/1Itq_wV4PazAKhOEJExu4ia9a6Y-_oZcT/view?usp=sharing" target="_blank" class="btn-large btn-black">
+                    <i class="fa-solid fa-file-pdf"></i> Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--surface-border);">
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">&copy; 2026 Visswa Aravind.
+            Technical Product Manager.</p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-scroll]').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

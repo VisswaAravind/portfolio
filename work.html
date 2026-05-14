@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Work | PM Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="light-theme">
+    <div class="background-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <nav class="pill-nav-container">
+        <div class="pill-nav">
+            <div class="pill-links">
+                <a href="index.html" class="pill-link active">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+                <button id="theme-toggle" class="pill-link theme-pill" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun whistle-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="section-header center-text">
+            <h1 class="hero-title fade-in-up delay-1 reveal-text">
+                <span>All Case Studies</span>
+            </h1>
+            <p class="section-desc fade-in-up delay-2">A deep dive into my product and technical work.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- 1. Rentsomeware -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up" data-scroll
+                onclick="window.location.href='projects/rentsomeware.html'" style="cursor: pointer;">
+                <div class="project-image-preview" style="background: #ffffff; padding: 0;">
+                    <img src="assets/featureGraphic/rentsomeware.png" alt="Rentsomeware" class="feature-graphic" style="object-fit: contain; width: 100%; height: 100%;">
+                </div>
+                <div class="project-content-compact">
+                    <h3>Rentsomeware</h3>
+                    <p class="mini-desc">Peer-to-peer rental platform combining social media and e-commerce for a trusted community.</p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+
+            <!-- 2. Multi-Brand App -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-1" data-scroll
+                onclick="window.location.href='projects/gym-apps.html'" style="cursor: pointer;">
+                <div class="project-image-preview">
+                    <img src="assets/featureGraphic/Multibrandedgymapps.png" alt="Multi-Brand App"
+                        class="feature-graphic">
+                </div>
+                <div class="project-content-compact">
+                    <h3>Multi Branded Gym Apps</h3>
+                    <p class="mini-desc">Shared scalable architecture powering apps for multiple gym brands with unified
+                        code.</p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+
+            <!-- 2. NavBuddy -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-1" data-scroll
+                onclick="window.location.href='projects/navbuddy.html'" style="cursor: pointer;">
+                <div class="project-image-preview">
+                    <img src="assets/featureGraphic/NavBuddy.png" alt="NavBuddy" class="feature-graphic">
+                </div>
+                <div class="project-content-compact">
+                    <h3>NavBuddy</h3>
+                    <p class="mini-desc">Pet tracking software integrating real-time GPS hardware with a mobile
+                        interface.</p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+
+            <!-- 3. Employee App -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-2" data-scroll
+                onclick="window.location.href='projects/employee-app.html'" style="cursor: pointer;">
+                <div class="project-image-preview">
+                    <img src="assets/featureGraphic/petalEmployeeapp.png" alt="Employee App" class="feature-graphic">
+                </div>
+                <div class="project-content-compact">
+                    <h3>Employee App</h3>
+                    <p class="mini-desc">Internal corporate application for streamlining leave management and
+                        attendance.</p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+
+            <!-- 4. MIS Mobile App -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-1" data-scroll
+                onclick="window.location.href='projects/mis-mobile.html'" style="cursor: pointer;">
+                <div class="project-image-preview">
+                    <img src="assets/featureGraphic/MisReport.png" alt="MIS Mobile App" class="feature-graphic">
+                </div>
+                <div class="project-content-compact">
+                    <h3>MIS Mobile App</h3>
+                    <p class="mini-desc">Secure mobile tool for lawyers to track case dates, files, and client details.
+                    </p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+
+            <!-- 5. Spell-IOT -->
+            <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-2" data-scroll
+                onclick="window.location.href='projects/iot-cloud.html'" style="cursor: pointer;">
+                <div class="project-image-preview">
+                    <img src="assets/featureGraphic/iot_cloud.png" alt="IoT Cloud App" class="feature-graphic">
+                </div>
+                <div class="project-content-compact">
+                    <h3>Spell-IOT</h3>
+                    <p class="mini-desc">Universal dashboard platform for managing and visualizing diverse IoT devices.
+                    </p>
+                    <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container center-text">
+            <p>&copy; 2024 Visswa Aravind. Built with <i class="fa-solid fa-heart accent"></i>.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

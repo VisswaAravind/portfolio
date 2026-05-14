@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager Portfolio | Technical PM</title>
+    <meta name="description"
+        content="Portfolio of a Flutter Developer transitioning to Product Management. Focus on technical PM, user-centric design, and scalability.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="light-theme">
+
+    <!-- Background Elements -->
+    <div class="background-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Floating Pill Navigation (Dynamic & Sticky) -->
+    <nav class="pill-nav-container">
+        <div class="pill-nav">
+            <div class="pill-date-time">
+                <div id="live-time" class="time">08:53 AM</div>
+                <div id="live-date" class="date">Sun, 15 Feb 2026</div>
+            </div>
+            <div class="pill-divider"></div>
+            <div class="pill-links">
+                <a href="#about" class="nav-section-link pill-link active" data-section="about">
+                    <i class="fa-solid fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#experience" class="nav-section-link pill-link" data-section="experience"
+                    aria-label="Experience">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+                <a href="#skills" class="nav-section-link pill-link" data-section="skills" aria-label="Skills">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="#work" class="nav-section-link pill-link" data-section="work" aria-label="Work">
+                    <i class="fa-solid fa-list-ul"></i>
+                    <span>Case Studies</span>
+                </a>
+                <a href="#contact" class="nav-section-link pill-link" data-section="contact" aria-label="Contact">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+                <button id="theme-toggle" class="pill-link theme-pill" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun whistle-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Page Content Wrapper (Animated) -->
+    <main id="page-content">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section center-aligned">
+            <div class="container hero-minimal">
+                <div class="hero-text-wrap" data-scroll>
+                    <div class="star-icon star-top"><i class="fa-solid fa-star-four-points"></i></div>
+                    <h1 class="minimal-title fade-in-up">
+                        <span class="hi-text">Hi. I'm <br>Visswa Aravind</span>
+                    </h1>
+
+                    <h1 class="minimal-title fade-in-up delay-1">
+                        <span class="a-text">Aspiring Technical</span>
+                        <span class="star-icon star-mid"><i class="fa-solid fa-star-four-points"></i></span>
+                    </h1>
+                    <h1 class="minimal-title fade-in-up delay-2">
+                        <span class="pm-text">
+                            <span class="underline-pm">Product</span> Manager.
+                        </span>
+                        <span class="star-icon star-mid" style="margin-left: 1rem;"><i
+                                class="fa-solid fa-star-four-points"></i></span>
+                    </h1>
+                </div>
+
+            </div>
+
+            <div class="hero-scroll-indicator">
+                <span class="scroll-dot"></span>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container glass-card about-card" data-scroll>
+                <div class="about-content-wrapper">
+                    <div class="about-profile">
+                        <div class="profile-arch">
+                            <img src="my_img.png" alt="Visswa Aravind">
+                        </div>
+                        <div class="social-tags">
+                            <a href="https://www.linkedin.com/in/visswa-aravind/" target="_blank"
+                                rel="noopener noreferrer" class="social-tag">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:visswaaravind@gmail.com" class="social-tag">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="about-main">
+                        <p class="about-description">
+                            Hi I’m a Flutter Developer evolving into Product Management, bridging
+                            technical execution with
+                            product strategy. Over the past 2+ years, I’ve shipped multiple end-to-end mobile
+                            applications, leading development from ideation to release while collaborating with backend,
+                            design, and hardware teams.
+                        </p>
+                        <p class="about-description secondary">
+                            My focus is on identifying user pain points, defining clear success metrics, and
+                            prioritizing features that drive measurable business outcomes. I approach product decisions
+                            with structured thinking, stakeholder alignment, and data-informed trade-offs.
+                        </p>
+                        <p class="about-description secondary" style="margin-top: 1rem;">
+                            I’m currently seeking Product Management roles where I can leverage my engineering
+                            foundation to build scalable, user-centric products that create real impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Skills Section (Redesigned) -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+
+                <div class="skills-box">
+                    <!-- 1. Product Management Skills -->
+                    <div class="skills-group" data-scroll>
+                        <h2 class="skills-group-title">
+                            Product Management Skills
+                            <span class="title-stars"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                        </h2>
+
+                        <!-- Row 1: 19 Skills -->
+                        <div class="skills-soft-grid scroll-19">
+                            <!-- Original Items -->
+                            <div class="skill-soft-card"><i class="fa-solid fa-chart-line"></i><span>Product
+                                    Analytics</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-flask"></i><span>A/B Testing</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-bullseye"></i><span>KPI & Metrics
+                                    Tracking</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-magnifying-glass"></i><span>User
+                                    Research</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-route"></i><span>Customer Journey
+                                    Mapping</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-vial"></i><span>Hypothesis Testing</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-arrows-rotate"></i><span>Agile &
+                                    Scrum</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-list-check"></i><span>Backlog
+                                    Prioritization</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-file-lines"></i><span>PRD Writing</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-calendar-check"></i><span>Sprint
+                                    Planning</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-eye"></i><span>Product Vision</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-flag-checkered"></i><span>OKRs & Goal
+                                    Setting</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chess"></i><span>Competitive
+                                    Analysis</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-globe"></i><span>Market Research</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chart-pie"></i><span>Growth
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-rocket"></i><span>Go-To-Market
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-sack-dollar"></i><span>Revenue
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-handshake"></i><span>Customer
+                                    Retention</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-vials"></i><span>Experimentation</span>
+                            </div>
+
+                            <!-- Duplicated for Loop -->
+                            <div class="skill-soft-card"><i class="fa-solid fa-chart-line"></i><span>Product
+                                    Analytics</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-flask"></i><span>A/B Testing</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-bullseye"></i><span>KPI & Metrics
+                                    Tracking</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-magnifying-glass"></i><span>User
+                                    Research</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-route"></i><span>Customer Journey
+                                    Mapping</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-vial"></i><span>Hypothesis Testing</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-arrows-rotate"></i><span>Agile &
+                                    Scrum</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-list-check"></i><span>Backlog
+                                    Prioritization</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-file-lines"></i><span>PRD Writing</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-calendar-check"></i><span>Sprint
+                                    Planning</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-eye"></i><span>Product Vision</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-flag-checkered"></i><span>OKRs & Goal
+                                    Setting</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chess"></i><span>Competitive
+                                    Analysis</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-globe"></i><span>Market Research</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chart-pie"></i><span>Growth
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-rocket"></i><span>Go-To-Market
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-sack-dollar"></i><span>Revenue
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-handshake"></i><span>Customer
+                                    Retention</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-vials"></i><span>Experimentation</span>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: 18 Skills (including 10 New ones) -->
+                        <div class="skills-soft-grid scroll-19-rev">
+                            <!-- New & Remaining Items -->
+                            <div class="skill-soft-card"><i class="fa-solid fa-ranking-star"></i><span>Feature
+                                    Prioritization</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-compass"></i><span>Product
+                                    Discovery</span></div>
+                            <div class="skill-soft-card"><i
+                                    class="fa-solid fa-pencil-ruler"></i><span>Wireframing</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-comments"></i><span>Customer Feedback
+                                    Analysis</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-database"></i><span>Data-Driven Decision
+                                    Making</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-triangle-exclamation"></i><span>Risk
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-box-open"></i><span>Release
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-layer-group"></i><span>Platform
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-plug"></i><span>API & Integrations</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-map-location-dot"></i><span>Roadmap
+                                    Communication</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-seedling"></i><span>Product-Led
+                                    Growth</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-people-group"></i><span>Cross-Functional
+                                    Leadership</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-pen-nib"></i><span>Prototyping</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-heart"></i><span>UI/UX Expertise</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-users-gear"></i><span>Stakeholder
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-diagram-project"></i><span>Project
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-microchip"></i><span>AI for PMs</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-map"></i><span>Roadmapping</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chess-knight"></i><span>Product
+                                    Strategy</span></div>
+
+                            <!-- Duplicated for Loop -->
+                            <div class="skill-soft-card"><i class="fa-solid fa-ranking-star"></i><span>Feature
+                                    Prioritization</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-compass"></i><span>Product
+                                    Discovery</span></div>
+                            <div class="skill-soft-card"><i
+                                    class="fa-solid fa-pencil-ruler"></i><span>Wireframing</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-comments"></i><span>Customer Feedback
+                                    Analysis</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-database"></i><span>Data-Driven Decision
+                                    Making</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-triangle-exclamation"></i><span>Risk
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-box-open"></i><span>Release
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-layer-group"></i><span>Platform
+                                    Strategy</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-plug"></i><span>API & Integrations</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-map-location-dot"></i><span>Roadmap
+                                    Communication</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-seedling"></i><span>Product-Led
+                                    Growth</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-people-group"></i><span>Cross-Functional
+                                    Leadership</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-pen-nib"></i><span>Prototyping</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-heart"></i><span>UI/UX Expertise</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-users-gear"></i><span>Stakeholder
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-diagram-project"></i><span>Project
+                                    Management</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-microchip"></i><span>AI for PMs</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-map"></i><span>Roadmapping</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-chess-knight"></i><span>Product
+                                    Strategy</span></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Technical Skills -->
+                    <div class="skills-group" data-scroll>
+                        <h2 class="skills-group-title">
+                            Technical Skills
+                            <span class="title-stars"><i class="fa-solid fa-sparkles"></i></span>
+                        </h2>
+                        <div class="skills-soft-grid scroll-8">
+                            <!-- New List -->
+                            <div class="skill-soft-card"><img src="assets/icons/flutter.png" alt="Flutter"
+                                    class="skill-icon"><span>Flutter</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Dart.png" alt="Dart"
+                                    class="skill-icon"><span>Dart</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Java.png" alt="Java"
+                                    class="skill-icon"><span>Java</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/kotlin.png" alt="Kotlin"
+                                    class="skill-icon"><span>Kotlin</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-server icon-api"></i><span>Rest
+                                    API</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-brands fa-git-alt icon-git"></i><span>Git</span>
+                            </div>
+                            <div class="skill-soft-card"><img src="assets/icons/firebase.png" alt="Firebase"
+                                    class="skill-icon"><span>Firebase</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-database icon-sql"></i><span>SQL</span>
+                            </div>
+                            <!-- Duplicated -->
+                            <div class="skill-soft-card"><img src="assets/icons/flutter.png" alt="Flutter"
+                                    class="skill-icon"><span>Flutter</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Dart.png" alt="Dart"
+                                    class="skill-icon"><span>Dart</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Java.png" alt="Java"
+                                    class="skill-icon"><span>Java</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/kotlin.png" alt="Kotlin"
+                                    class="skill-icon"><span>Kotlin</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-server icon-api"></i><span>Rest
+                                    API</span>
+                            </div>
+                            <div class="skill-soft-card"><i class="fa-brands fa-git-alt icon-git"></i><span>Git</span>
+                            </div>
+                            <div class="skill-soft-card"><img src="assets/icons/firebase.png" alt="Firebase"
+                                    class="skill-icon"><span>Firebase</span></div>
+                            <div class="skill-soft-card"><i class="fa-solid fa-database icon-sql"></i><span>SQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Tools -->
+                    <div class="skills-group" data-scroll>
+                        <h2 class="skills-group-title">
+                            Tools
+                            <span class="title-stars"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                        </h2>
+                        <div class="skills-soft-grid scroll-16">
+                            <!-- Original Items -->
+                            <div class="skill-soft-card"><i
+                                    class="fa-brands fa-github icon-github"></i><span>GitHub</span>
+                            </div>
+                            <div class="skill-soft-card"><img src="assets/icons/postman.png" alt="Postman"
+                                    class="skill-icon"><span>Postman</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/android-studio.png" alt="Android Studio"
+                                    class="skill-icon"><span>Android Studio</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Xcode.png" alt="Xcode"
+                                    class="skill-icon"><span>Xcode</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/vscode.png" alt="VS Code"
+                                    class="skill-icon"><span>VS Code</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/jira.png" alt="Jira"
+                                    class="skill-icon"><span>Jira</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Confluence.png" alt="Confluence"
+                                    class="skill-icon"><span>Confluence</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/bitrix24.png" alt="Bitrix"
+                                    class="skill-icon"><span>Bitrix</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/miro.png" alt="Miro"
+                                    class="skill-icon"><span>Miro</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Figma.png" alt="Figma"
+                                    class="skill-icon"><span>Figma</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Slack.png" alt="Slack"
+                                    class="skill-icon"><span>Slack</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Canva.png" alt="Canva"
+                                    class="skill-icon"><span>Canva</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/visily.png" alt="Visily AI"
+                                    class="skill-icon"><span>Visily AI</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/chatgpt.png" alt="ChatGPT"
+                                    class="skill-icon"><span>ChatGPT</span></div>
+                            <div class="skill-soft-card"><i
+                                    class="fa-solid fa-wand-magic-sparkles icon-ai-alt"></i><span>Stitch AI</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Antigravity.jpg" alt="Antigravity"
+                                    class="skill-icon"><span>Antigravity</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/shorebird.png" alt="ShoreBird"
+                                    class="skill-icon"><span>Shore Bird</span></div>
+
+                            <!-- Duplicated for Loop -->
+                            <div class="skill-soft-card"><i
+                                    class="fa-brands fa-github icon-github"></i><span>GitHub</span>
+                            </div>
+                            <div class="skill-soft-card"><img src="assets/icons/postman.png" alt="Postman"
+                                    class="skill-icon"><span>Postman</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/android-studio.png" alt="Android Studio"
+                                    class="skill-icon"><span>Android Studio</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Xcode.png" alt="Xcode"
+                                    class="skill-icon"><span>Xcode</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/vscode.png" alt="VS Code"
+                                    class="skill-icon"><span>VS Code</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/jira.png" alt="Jira"
+                                    class="skill-icon"><span>Jira</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Confluence.png" alt="Confluence"
+                                    class="skill-icon"><span>Confluence</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/bitrix24.png" alt="Bitrix"
+                                    class="skill-icon"><span>Bitrix</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/miro.png" alt="Miro"
+                                    class="skill-icon"><span>Miro</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Figma.png" alt="Figma"
+                                    class="skill-icon"><span>Figma</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Slack.png" alt="Slack"
+                                    class="skill-icon"><span>Slack</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Canva.png" alt="Canva"
+                                    class="skill-icon"><span>Canva</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/visily.png" alt="Visily AI"
+                                    class="skill-icon"><span>Visily AI</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/chatgpt.png" alt="ChatGPT"
+                                    class="skill-icon"><span>ChatGPT</span></div>
+                            <div class="skill-soft-card"><i
+                                    class="fa-solid fa-wand-magic-sparkles icon-ai-alt"></i><span>Stitch AI</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/Antigravity.jpg" alt="Antigravity"
+                                    class="skill-icon"><span>Antigravity</span></div>
+                            <div class="skill-soft-card"><img src="assets/icons/shorebird.png" alt="ShoreBird"
+                                    class="skill-icon"><span>Shore Bird</span></div>
+                        </div>
+                    </div>
+                </div> <!-- End of Skills Box -->
+
+                <!-- Certifications Sub-section -->
+                <div class="certifications-wrap" data-scroll style="margin-top: 2rem;">
+                    <h3 class="center-text" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Certifications & Learning
+                        Paths
+                    </h3>
+                    <div class="cert-grid" style="margin-top: 1rem;">
+                        <div class="glass-card cert-item hover-glow">
+                            <div class="cert-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="cert-info">
+                                <h4>Master Product Management by actually building a Product</h4>
+                                <span>Udemy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End of Skills Container -->
+            </div>
+        </section>
+
+
+
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header center-text" data-scroll>
+                    <h2 class="section-title">Professional Journey</h2>
+                    <p class="section-desc">From building features to defining outcomes.</p>
+                </div>
+
+                <div class="experience-timeline">
+                    <!-- Petals Automation -->
+                    <div class="exp-item fade-in-left" data-scroll>
+                        <div class="exp-dot"></div>
+                        <div class="exp-content glass-card hover-glow">
+                            <div class="exp-header">
+                                <div class="exp-role-wrap">
+                                    <h3>Flutter Developer</h3>
+                                    <span class="exp-company">Petals Automation</span>
+                                </div>
+                                <span class="exp-date">2025 - Present</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Glenwood Systems -->
+                    <div class="exp-item fade-in-right" data-scroll>
+                        <div class="exp-dot"></div>
+                        <div class="exp-content glass-card hover-glow">
+                            <div class="exp-header">
+                                <div class="exp-role-wrap">
+                                    <h3>Software Developer</h3>
+                                    <span class="exp-company">Glenwood Systems</span>
+                                </div>
+                                <span class="exp-date">2024 - 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Freelance -->
+                    <div class="exp-item fade-in-left" data-scroll>
+                        <div class="exp-dot"></div>
+                        <div class="exp-content glass-card hover-glow">
+                            <div class="exp-header">
+                                <div class="exp-role-wrap">
+                                    <h3>Mobile Developer (Freelance)</h3>
+                                    <span class="exp-company">Independent Projects</span>
+                                </div>
+                                <span class="exp-date">2023 - 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="exp-item fade-in-right" data-scroll>
+                        <div class="exp-dot"></div>
+                        <div class="exp-content glass-card hover-glow">
+                            <div class="exp-header">
+                                <div class="exp-role-wrap">
+                                    <h3>Master of Computer Applications (MCA)</h3>
+                                    <span class="exp-company">PSNA College of Engg and Tech</span>
+                                </div>
+                                <span class="exp-date">2022 - 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+
+        <section id="work" class="work-section">
+            <div class="container">
+                <div class="section-header center-text" data-scroll>
+                    <h2 class="section-title">Selected Case Studies</h2>
+                    <p class="section-desc">Solving real problems with data-driven decisions.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- 1. Rentsomeware -->
+                    <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up" data-scroll
+                        onclick="window.location.href='projects/rentsomeware.html'" style="cursor: pointer;">
+                        <div class="project-image-preview" style="background: #ffffff; padding: 0;">
+                            <img src="assets/featureGraphic/rentsomeware.png" alt="Rentsomeware" class="feature-graphic"
+                                style="object-fit: contain; width: 100%; height: 100%;">
+                        </div>
+                        <div class="project-content-compact">
+                            <h3>Rentsomeware</h3>
+                            <p class="mini-desc">Peer-to-peer rental platform combining social media and e-commerce for
+                                a trusted community.</p>
+                            <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </article>
+
+                    <!-- 2. IoT Cloud App -->
+                    <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-1" data-scroll
+                        onclick="window.location.href='projects/iot-cloud.html'" style="cursor: pointer;">
+                        <div class="project-image-preview">
+                            <img src="assets/featureGraphic/iot_cloud.png" alt="IoT Cloud App" class="feature-graphic">
+                        </div>
+                        <div class="project-content-compact">
+                            <h3>Spell-IOT</h3>
+                            <p class="mini-desc">Universal dashboard platform for managing and visualizing diverse IoT
+                                devices.</p>
+                            <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </article>
+
+                    <!-- 3. MIS Report App -->
+                    <article class="portfolio-card glass-card hover-lift hover-shine fade-in-up delay-2" data-scroll
+                        onclick="window.location.href='projects/mis-mobile.html'" style="cursor: pointer;">
+                        <div class="project-image-preview">
+                            <img src="assets/featureGraphic/MisReport.png" alt="MIS Report App" class="feature-graphic">
+                        </div>
+                        <div class="project-content-compact">
+                            <h3>MIS Report App</h3>
+                            <p class="mini-desc">Mobile application designed to help law firms manage and review legal
+                                case information efficiently.</p>
+                            <div class="btn-text">Read Case Study <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="center-text" style="margin-top: 3rem;" data-scroll>
+                    <a href="work.html" class="btn btn-outline">See More Work <i class="fa-solid fa-arrow-right"
+                            style="margin-left: 0.5rem;"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process-section">
+            <div class="container" data-scroll>
+                <div class="section-header center-text">
+                    <h2 class="section-title">My Product Development Lifecycle</h2>
+                    <p class="section-desc">How I go from problem to impact.</p>
+                </div>
+                <div class="timeline" data-scroll>
+                    <!-- Stage 1 -->
+                    <div class="timeline-item fade-in-left delay-1" data-scroll>
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-magnifying-glass"></i> Problem Discovery</h3>
+                            <p>I look for real problems, not just features to build. By analyzing data and talking to
+                                users,
+                                I validate if a problem is worth solving before writing a single line of code.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="timeline-item fade-in-right delay-2" data-scroll>
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-user-group"></i> User Understanding</h3>
+                            <p>I define personas and map user journeys to understand the 'why' behind behaviors. I
+                                balance
+                                user pain points with business goals to build solutions that work for both.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="timeline-item fade-in-left delay-3" data-scroll>
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-lightbulb"></i> Solution Ideation</h3>
+                            <p>I explore multiple approaches and weigh trade-offs before committing to a solution. I
+                                involve
+                                engineering early to assess feasibility and avoid costly changes later.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="timeline-item fade-in-right delay-4" data-scroll>
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-list-check"></i> Prioritization & Planning</h3>
+                            <p>I use frameworks like RICE to decide what to build first. I focus on high-impact work and
+                                define a lean MVP to test ideas without overbuilding.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="timeline-item fade-in-left delay-5" data-scroll>
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-gears"></i> Execution & Collaboration</h3>
+                            <p>I collaborate closely with developers and designers to stay aligned. My technical
+                                background
+                                allows me to communicate clearly and unblock the team quickly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 6 -->
+                    <div class="timeline-item fade-in-right" data-scroll>
+                        <div class="timeline-marker">6</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-rocket"></i> Release & Delivery</h3>
+                            <p>I plan phased releases to manage risk and ensure quality. I make sure testing is thorough
+                                and
+                                stakeholders are prepared for a smooth launch.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 7 -->
+                    <div class="timeline-item fade-in-left" data-scroll>
+                        <div class="timeline-marker">7</div>
+                        <div class="timeline-content glass-card hover-glow hover-shine">
+                            <h3><i class="fa-solid fa-chart-line"></i> Measurement & Learning</h3>
+                            <p>I define success metrics like retention and conversion to measure impact. I use real data
+                                and
+                                user feedback to learn what works and iterate for the next cycle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Resume Section -->
+        <section class="resume-section">
+            <div class="container glass-card resume-card" data-scroll>
+                <div class="resume-content">
+                    <h2>Curious about my full background?</h2>
+                    <p>Grab a copy of my resume to explore my complete work history, key achievements, and technical
+                        skills.</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1ib4w7ptSUNxZ8buPDepNQKBl1AFxScH0/view?usp=sharing"
+                    target="_blank" class="btn btn-primary shimmer-btn"><i class="fa-solid fa-download"></i> Download
+                    Resume</a>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper glass-card" data-scroll>
+                    <div class="contact-info">
+                        <h2>Let's Build Something Great</h2>
+                        <p style="color: var(--accent-primary); font-weight: 500; margin-bottom: 1rem;">I’m currently
+                            seeking Associate Product Manager or Junior Technical PM roles where I can work on
+                            user-facing
+                            products and grow into full product ownership.</p>
+                        <p>I'm currently looking for new opportunities. Let's connect!</p>
+                        <div class="contact-social-pills">
+                            <a href="mailto:visswaaravind@gmail.com" class="social-pill" aria-label="Email">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/visswa-aravind" target="_blank"
+                                rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/VisswaAravind" target="_blank" rel="noopener noreferrer"
+                                class="social-pill" aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="tel:+919840415281" class="social-pill" aria-label="Phone">
+                                <i class="fa-solid fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container center-text">
+            <p>&copy; 2026 Visswa Aravind. Built with <i class="fa-solid fa-heart accent"></i>.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Branded Gym Apps | Case Study</title>
+    <meta name="description" content="Case study on building a scalable multi-branded fitness & health platform.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .case-study-hero {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            text-align: center;
+        }
+
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .section-card {
+            padding: var(--spacing-md);
+        }
+
+        .section-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-item i {
+            color: var(--accent-primary);
+            margin-top: 0.3rem;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 2.5rem;
+            left: 2.5rem;
+            z-index: 101;
+        }
+
+        .decision-block {
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .decision-block h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+                position: absolute;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <div class="background-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2" style="background: var(--blob-2);"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <a href="../index.html#work" class="btn btn-outline back-nav">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <header class="case-study-hero">
+        <div class="container">
+            <div class="badge fade-in-up">Scalable Fitness & Health Platform</div>
+            <h1 class="hero-title fade-in-up delay-1 reveal-text">
+                <span>Multi-Branded Gym Apps</span>
+            </h1>
+            <p class="hero-subtitle fade-in-up delay-2" style="margin: 0 auto; max-width: 600px;">
+                A centralized mobile solution digitizing gym workflows and tracking for multiple franchises.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="case-study-content">
+
+            <section class="glass-card section-card hover-shine scale-in" data-scroll>
+                <span class="section-label">🧩 Product Overview</span>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Product Type</h4>
+                        <p style="color: var(--text-secondary);">Mobile SaaS Platform (B2B2C)</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Key Users</h4>
+                        <p style="color: var(--text-secondary);">Gym members, owners, franchises</p>
+                    </div>
+                </div>
+                <p>
+                    Gym members struggled with manual attendance, workout, diet, and progress tracking. This product
+                    digitized and centralized these workflows into a seamless mobile experience across different gym
+                    brands.
+                </p>
+            </section>
+
+            <section class="glass-card section-card hover-shine scale-in" data-scroll>
+                <span class="section-label">🎯 The Problem</span>
+                <p>
+                    The lack of consistent tracking resulted in poor user engagement and inefficient gym operations.
+                    Building separate codebases for each brand was unscalable and costly to maintain.
+                </p>
+            </section>
+
+            <section class="glass-card section-card hover-shine scale-in" data-scroll>
+                <span class="section-label">🧠 Product Decision</span>
+                <h3 style="margin-bottom: 1rem; color: var(--accent-primary);">Shared Multi-Tenant Architecture</h3>
+
+                <div class="decision-block">
+                    <h4>The Decision</h4>
+                    <p>Use a single shared codebase for multiple gym brands instead of white-label cloning.</p>
+                </div>
+
+                <div class="decision-block">
+                    <h4>Context</h4>
+                    <p>Needed to support multiple gym franchises with similar functionality while maintaining distinct
+                        branding and rapid launch cycles.</p>
+                </div>
+
+                <div class="decision-block">
+                    <h4>Rationale</h4>
+                    <p>Faster launches, reduced maintenance effort, and scalable growth without adding codebase
+                        complexity. Shippable updates reflected across all brands instantly.</p>
+                </div>
+            </section>
+
+            <section class="glass-card section-card hover-shine scale-in" data-scroll>
+                <span class="section-label">📊 MVP & Rationale</span>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">MVP Features</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><i class="fa-solid fa-check-circle"></i> Member attendance tracking
+                            </li>
+                            <li class="feature-item"><i class="fa-solid fa-check-circle"></i> Height & weight tracking
+                            </li>
+                            <li class="feature-item"><i class="fa-solid fa-check-circle"></i> User profile management
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1rem; opacity: 0.7;">De-prioritized</h4>
+                        <ul class="feature-list" style="opacity: 0.7;">
+                            <li class="feature-item"><i class="fa-solid fa-circle-minus"></i> Advanced diet plans</li>
+                            <li class="feature-item"><i class="fa-solid fa-circle-minus"></i> Trainer-led customization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="decision-block">
+                    <h4>MVP Rationale</h4>
+                    <p>Attendance tracking was prioritized to validate core product value early and digitize the most
+                        basic user interaction first.</p>
+                </div>
+            </section>
+
+            <section class="glass-card section-card hover-shine scale-in" data-scroll>
+                <span class="section-label">🚀 Outcomes & Impact</span>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Key Outcomes</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><i class="fa-solid fa-rocket"></i> Multi-brand scaling</li>
+                            <li class="feature-item"><i class="fa-solid fa-rotate"></i> 90% Code reuse</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Impact</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><i class="fa-solid fa-chart-line"></i> 60% reduction in op-effort
+                            </li>
+                            <li class="feature-item"><i class="fa-solid fa-bolt"></i> Faster franchise onboarding</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card section-card scale-in" data-scroll
+                style="text-align: center; background: rgba(56, 189, 248, 0.05); border: 1px solid var(--accent-primary);">
+                <span class="section-label">👤 My Role</span>
+                <p style="font-weight: 500; font-size: 1.1rem;">
+                    End-to-end product ownership covering problem definition, prioritization, execution, and impact
+                    evaluation.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container center-text">
+            <p>&copy; 2024 Visswa Aravind. Built with <i class="fa-solid fa-heart accent"></i>.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
