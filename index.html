@@ -732,6 +732,44 @@
                             </a>
                         </div>
                     </div>
+
+                    <form id="contact-form" class="contact-form-inner">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block shimmer-btn">Send Message</button>
+                        <div class="success-message">Thanks! I'll get back to you soon.</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Method Modal -->
+        <div id="contact-modal" class="modal-overlay">
+            <div class="modal-content glass-card scale-in">
+                <h3>How would you like to connect?</h3>
+                <p>Choose your preferred method to send this message.</p>
+                <div class="modal-options">
+                    <button id="contact-whatsapp" class="btn modal-btn whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button id="contact-email" class="btn modal-btn email">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </button>
+                </div>
+                <button id="close-modal" class="modal-close-btn">&times;</button>
+            </div>
+        </div>
                 </div>
             </div>
         </section>

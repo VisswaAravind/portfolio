@@ -92,22 +92,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 5. Form Handling
+    // 5. Form Handling (Email vs WhatsApp Choice)
     // =========================================
     const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
+    const contactModal = document.getElementById('contact-modal');
+    const whatsappBtn = document.getElementById('contact-whatsapp');
+    const emailBtn = document.getElementById('contact-email');
+    const closeModalBtn = document.getElementById('close-modal');
+
+    let pendingFormData = null;
+
+    if (contactForm && contactModal) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            pendingFormData = new FormData(contactForm);
+            
+            // Show Modal
+            contactModal.classList.add('active');
+            contactModal.querySelector('.modal-content').classList.add('visible');
+        });
+
+        // Close Modal
+        const closeModal = () => {
+            contactModal.classList.remove('active');
+            contactModal.querySelector('.modal-content').classList.remove('visible');
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === contactModal) closeModal();
+        });
+
+        // WhatsApp Redirection
+        whatsappBtn.addEventListener('click', () => {
+            const name = pendingFormData.get('name');
+            const email = pendingFormData.get('email');
+            const message = pendingFormData.get('message');
+            
+            const text = `Hi Visswa, I'm ${name} (${email}). ${message}`;
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/919840415281?text=${encodedText}`;
+            
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+            contactForm.reset();
+        });
+
+        // Email Submission (Existing Fetch Logic)
+        emailBtn.addEventListener('click', () => {
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             btn.innerText = 'Sending...';
             btn.disabled = true;
+            closeModal();
 
-            const formData = new FormData(contactForm);
             fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
+                body: new URLSearchParams(pendingFormData).toString(),
             })
                 .then(() => {
                     document.querySelector('.success-message').style.display = 'block';
