@@ -2260,6 +2260,7 @@ h6 {
     text-align: center;
     position: relative;
     padding: 3rem 2rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .modal-content h3 {

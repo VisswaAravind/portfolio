@@ -138,31 +138,20 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
 
-        // Email Submission (Existing Fetch Logic)
+        // Email Redirection (mailto:)
         emailBtn.addEventListener('click', () => {
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
+            const name = pendingFormData.get('name');
+            const email = pendingFormData.get('email');
+            const message = pendingFormData.get('message');
+            
+            const subject = `Contact from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            
+            const mailtoUrl = `mailto:visswaaravind@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoUrl;
             closeModal();
-
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(pendingFormData).toString(),
-            })
-                .then(() => {
-                    document.querySelector('.success-message').style.display = 'block';
-                    contactForm.reset();
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                    setTimeout(() => document.querySelector('.success-message').style.display = 'none', 5000);
-                })
-                .catch(() => {
-                    alert("Form submission failed. Please try again.");
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                });
+            contactForm.reset();
         });
     }
 
