@@ -95,63 +95,110 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Form Handling (Email vs WhatsApp Choice)
     // =========================================
     const contactForm = document.getElementById('contact-form');
-    const contactModal = document.getElementById('contact-modal');
+    const sendBtn = document.getElementById('send-message-btn');
+    const contactMethodInline = document.getElementById('contact-method-inline');
     const whatsappBtn = document.getElementById('contact-whatsapp');
     const emailBtn = document.getElementById('contact-email');
-    const closeModalBtn = document.getElementById('close-modal');
 
-    let pendingFormData = null;
-
-    if (contactForm && contactModal) {
+    if (contactForm && sendBtn && contactMethodInline && whatsappBtn && emailBtn) {
+        // Submit handler for the "Send Message" button
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            pendingFormData = new FormData(contactForm);
             
-            // Show Modal
-            contactModal.classList.add('active');
-            contactModal.querySelector('.modal-content').classList.add('visible');
+            // Check form validity
+            if (contactForm.checkValidity()) {
+                // Hide the "Send Message" button
+                sendBtn.style.display = 'none';
+                
+                // Show the WhatsApp & Email options in its place
+                contactMethodInline.style.display = 'block';
+                contactMethodInline.classList.add('highlight-pulse');
+                
+                // Smoothly scroll the container into view
+                contactMethodInline.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                contactForm.reportValidity();
+            }
         });
 
-        // Close Modal
-        const closeModal = () => {
-            contactModal.classList.remove('active');
-            contactModal.querySelector('.modal-content').classList.remove('visible');
+        // Helper function to get form data and trigger validation
+        const getFormDataIfValid = () => {
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                // Smoothly scroll to the first invalid field
+                const firstInvalid = contactForm.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return null;
+            }
+            
+            const formData = new FormData(contactForm);
+            return {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
         };
-
-        closeModalBtn.addEventListener('click', closeModal);
-        window.addEventListener('click', (e) => {
-            if (e.target === contactModal) closeModal();
-        });
 
         // WhatsApp Redirection
         whatsappBtn.addEventListener('click', () => {
-            const name = pendingFormData.get('name');
-            const email = pendingFormData.get('email');
-            const message = pendingFormData.get('message');
-            
-            const text = `Hi Visswa, I'm ${name} (${email}). ${message}`;
+            const data = getFormDataIfValid();
+            if (!data) return; // Form is invalid
+
+            const text = `Hi Visswa Happy to contact you\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`;
             const encodedText = encodeURIComponent(text);
             const whatsappUrl = `https://wa.me/919840415281?text=${encodedText}`;
             
             window.open(whatsappUrl, '_blank');
-            closeModal();
-            contactForm.reset();
+            
+            // Cleanup and success feedback
+            resetFormToDefault();
+            showSuccessFeedback();
         });
 
         // Email Redirection (mailto:)
         emailBtn.addEventListener('click', () => {
-            const name = pendingFormData.get('name');
-            const email = pendingFormData.get('email');
-            const message = pendingFormData.get('message');
-            
-            const subject = `Contact from ${name}`;
-            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-            
+            const data = getFormDataIfValid();
+            if (!data) return; // Form is invalid
+
+            const subject = `Contact from ${data.name}`;
+            const body = `Hi Visswa Happy to contact you\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`;
             const mailtoUrl = `mailto:visswaaravind@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
             window.location.href = mailtoUrl;
-            closeModal();
+            
+            // Cleanup and success feedback
+            resetFormToDefault();
+            showSuccessFeedback();
+        });
+
+        // Reset the form action buttons to show the Send Message button again
+        const resetFormToDefault = () => {
+            sendBtn.style.display = 'block';
+            contactMethodInline.style.display = 'none';
+            contactMethodInline.classList.remove('highlight-pulse');
+        };
+
+        // Show feedback message after success
+        const showSuccessFeedback = () => {
+            const successMsg = contactForm.querySelector('.success-message');
+            if (successMsg) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 5000);
+            }
             contactForm.reset();
+        };
+
+        // If the user starts typing or edits, restore the Send Message button and hide choices
+        contactForm.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', () => {
+                if (sendBtn.style.display === 'none') {
+                    resetFormToDefault();
+                }
+            });
         });
     }
 

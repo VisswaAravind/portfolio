@@ -16,7 +16,7 @@
         rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=2.0">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -747,29 +747,26 @@
                             <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block shimmer-btn">Send Message</button>
+                        
+                        <div class="form-actions-wrap">
+                            <button type="submit" id="send-message-btn" class="btn btn-primary btn-block shimmer-btn">Send Message</button>
+                            
+                            <!-- Contact Method Choice (Appears in place of Send Message) -->
+                            <div id="contact-method-inline" class="contact-method-inline" style="display: none;">
+                                <h3>Send message via:</h3>
+                                <div class="inline-options">
+                                    <button type="button" id="contact-whatsapp" class="btn inline-btn whatsapp">
+                                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                                    </button>
+                                    <button type="button" id="contact-email" class="btn inline-btn email">
+                                        <i class="fa-solid fa-envelope"></i> Email
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="success-message">Thanks! I'll get back to you soon.</div>
                     </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Method Modal -->
-        <div id="contact-modal" class="modal-overlay">
-            <div class="modal-content glass-card scale-in">
-                <h3>How would you like to connect?</h3>
-                <p>Choose your preferred method to send this message.</p>
-                <div class="modal-options">
-                    <button id="contact-whatsapp" class="btn modal-btn whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </button>
-                    <button id="contact-email" class="btn modal-btn email">
-                        <i class="fa-solid fa-envelope"></i> Email
-                    </button>
-                </div>
-                <button id="close-modal" class="modal-close-btn">&times;</button>
-            </div>
-        </div>
                 </div>
             </div>
         </section>
@@ -782,7 +779,7 @@
         </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js?v=2.1"></script>
 </body>
 
 </html>
